@@ -2,6 +2,7 @@ import clsx from 'clsx'
 
 import { BasePage } from '../../components/BasePage'
 import { Button, ButtonSize } from '../../components/ui/Button'
+import waves from '../../imgs/waves.png'; 
 
 import styles from './MainPage.module.css'
 
@@ -16,6 +17,11 @@ export const MainPage = () => {
         <p>
           Give us chance to suggest drink or another stuff for homechill.
         </p>
+        <img
+          src={waves}
+          className={clsx(styles.wavesImg)}
+          alt="new waves"
+        />
       </div>
       <div className={clsx(styles.actions)}>
         <Button

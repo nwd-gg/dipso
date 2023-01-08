@@ -1,7 +1,7 @@
 .header {
   /* grid-row-start: 0;
   grid-row-end: 1; */
-  padding: 20px;
+  padding: 10px;
   background-color: rgba(69, 220, 255, 1);
 }
 
@@ -21,7 +21,9 @@
 }
 
 .name a {
-  font-size: 32px;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
   color: var(--accent-primary);
   font-weight: 700;
   text-decoration: none;
@@ -62,5 +64,20 @@
 
 .link:hover .linkContent::after {
   transform: translateX(0);
+}
+
+.wave {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url('../../imgs/wave.jpg');
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid var(--accent-primary);
+  box-sizing: border-box;
 }
 

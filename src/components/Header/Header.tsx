@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { Link } from "react-router-dom"
 
+import wave from '../../imgs/wave.jpg'; 
 import styles from './Header.module.css'
 
 export const Header = () => {
@@ -10,6 +11,9 @@ export const Header = () => {
         <div className={clsx(styles.inner)}>
           <h1 className={clsx(styles.name)}>
             <Link to="/">
+              <span
+                className={clsx(styles.wave)}
+              />
               NEW WAVE DIPSO
             </Link>
           </h1>
