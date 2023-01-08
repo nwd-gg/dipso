@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Link } from "react-router-dom";
 
 import { Spinner, SpinnerSizes } from '../Spinner'
 import styles from './Button.module.css'
@@ -36,9 +37,9 @@ export const Button = ({
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noreferrer" {...commonProps}>
+      <Link to={href} {...commonProps}>
         {children}
-      </a>
+      </Link>
     )
   }
 

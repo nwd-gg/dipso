@@ -1,11 +1,14 @@
 import clsx from 'clsx';
+import { Link } from "react-router-dom";
+
+import { BasePage } from '../../components/BasePage';
 import { Button, ButtonSize } from '../../components/ui/Button';
 
 import styles from './MainPage.module.css';
 
 export const MainPage = () => {
   return (
-    <div className={clsx(styles.mainPage)}>
+    <BasePage>
       <div className={clsx(styles.inner)}>
         <h1 className={clsx(styles.title)}>NEW WAVE DIPSO</h1>
         <div className={clsx(styles.desc)}>
@@ -19,11 +22,12 @@ export const MainPage = () => {
         <div className={clsx(styles.actions)}>
           <Button
             size={ButtonSize.Large}
+            href="prep"
           >
             Guide me
           </Button>
         </div>
       </div>
-    </div>
+    </BasePage>
   )
 };
