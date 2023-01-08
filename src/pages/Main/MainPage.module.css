@@ -1,0 +1,50 @@
+.mainPage {
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 42px;
+  color: var(--accent-primary);
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.desc {
+  width: 100%;
+  max-width: 520px;
+  width: auto;
+  font-size: 18px;
+  color: var(--text-color-primary);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 40px;
+}

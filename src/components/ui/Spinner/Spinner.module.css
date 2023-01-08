@@ -1,0 +1,51 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  animation: loader 1.5s ease infinite;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: currentColor;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.small {
+  height: 24px;
+  width: 24px;
+}
+
+.default {
+  height: 28px;
+  width: 28px;
+}
+
+.medium {
+  width: 36px;
+  height: 36px;
+}
+
+.large {
+  height: 44px;
+  width: 44px;
+}
+
+.opacity {
+  opacity: 0.6;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
