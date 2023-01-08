@@ -1,0 +1,61 @@
+.footer {
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(255, 105, 180, 1);
+  color: var(--text-color-primary);
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.contactsTitle {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.contactLink {
+  display: inline-flex;
+  color: var(--text-color-primary);
+  align-items: flex-end;
+  padding-right: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.25s ease-out;
+  line-height: 1;
+  
+}
+
+.contactLink:hover {
+  color: var(--second-color);
+}
+
+.copyright {
+  font-weight: 500;
+}
+
+.contactIcon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  line-height: 1;
+}
+
+.contactIcon.gmail {
+  background-image: url('https://lh3.googleusercontent.com/0rpHlrX8IG77awQMuUZpQ0zGWT7HRYtpncsuRnFo6V3c8Lh2hPjXnEuhDDd-OsLz1vua4ld2rlUYFAaBYk-rZCODmi2eJlwUEVsZgg');
+}
+
+.contactIcon.github {
+  background-image: url('https://github.githubassets.com/images/modules/site/icons/footer/github-mark.svg');
+}

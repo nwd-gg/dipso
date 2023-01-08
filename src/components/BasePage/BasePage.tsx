@@ -1,7 +1,9 @@
-import { ReactNode } from 'react';
-import clsx from 'clsx';
+import { ReactNode } from 'react'
+import clsx from 'clsx'
 
-import styles from './BasePage.module.css';
+import { Header } from '../Header'
+import styles from './BasePage.module.css'
+import { Footer } from '../Footer'
 
 export interface BasePageProps {
   children: ReactNode
@@ -10,7 +12,11 @@ export interface BasePageProps {
 export const BasePage = ({ children }: BasePageProps) => {
   return (
     <div className={clsx(styles.root)}>
-      {children}
+      <Header />
+      <main className={styles.main}>
+        {children}
+      </main>
+      <Footer />
     </div>
   )
 }

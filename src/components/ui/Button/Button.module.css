@@ -51,6 +51,5 @@
 }
 
 .solid.primary:hover {
-  color: var(--second-color);
   background-color: var(--accent-primary);
 }
