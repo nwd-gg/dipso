@@ -1,5 +1,6 @@
 .header {
-  width: 100%;
+  /* grid-row-start: 0;
+  grid-row-end: 1; */
   padding: 20px;
   background-color: rgba(69, 220, 255, 1);
 }
@@ -16,19 +17,50 @@
 }
 
 .name {
+  margin: 0;
+}
+
+.name a {
   font-size: 32px;
   color: var(--accent-primary);
-  margin: 0;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .nav {
   padding-left: 20px;
 }
 
-.nav a {
+.link {
+  display: inline-block;
+  padding: 0 10px;
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
   color: var(--text-color-primary);
 }
+
+.linkContent {
+  display: inline-block;
+  position: relative;
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.linkContent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-primary);
+  transform: translateX(-100%);
+  transform-origin: 0 0;
+  transition: transform 0.25s ease-out;
+}
+
+.link:hover .linkContent::after {
+  transform: translateX(0);
+}
+

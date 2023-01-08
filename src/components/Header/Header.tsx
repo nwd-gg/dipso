@@ -8,9 +8,15 @@ export const Header = () => {
     <header className={clsx(styles.header)}>
       <div className={clsx(styles.container)}>
         <div className={clsx(styles.inner)}>
-          <h1 className={clsx(styles.name)}>NEW WAVE DIPSO</h1>
+          <h1 className={clsx(styles.name)}>
+            <Link to="/">
+              NEW WAVE DIPSO
+            </Link>
+          </h1>
           <nav className={clsx(styles.nav)}>
-            <Link to="/">Home</Link>
+            <Link to="/" className={clsx(styles.link)}>
+              <span className={clsx(styles.linkContent)}>Home</span>
+            </Link>
           </nav>
         </div>
       </div>

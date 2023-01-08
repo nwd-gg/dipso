@@ -25,6 +25,14 @@ code {
     monospace;
 }
 
+a {
+  outline: none;
+}
+
+#root {
+  height: 100%;
+}
+
 :root {
   --text-color-primary: #fff;
   --primary-color: #f8c8dc;

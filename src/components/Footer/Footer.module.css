@@ -1,5 +1,6 @@
 .footer {
-  width: 100%;
+  grid-row-start: 3;
+  grid-row-end: 3;
   padding: 20px;
   background-color: rgba(255, 105, 180, 1);
   color: var(--text-color-primary);
@@ -30,7 +31,7 @@
   font-weight: 600;
   transition: color 0.25s ease-out;
   line-height: 1;
-  
+  outline: none;
 }
 
 .contactLink:hover {
