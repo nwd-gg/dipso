@@ -12,7 +12,7 @@ func main() {
   router := gin.New()
 
   // Set a lower memory limit for multipart forms (default is 32 MiB)
-	router.MaxMultipartMemory = 8 << 20  
+  router.MaxMultipartMemory = 8 << 20  
 
   router.Use(gin.Logger())
 
