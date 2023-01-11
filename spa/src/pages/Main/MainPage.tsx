@@ -4,7 +4,7 @@ import { BasePage } from '../../components/BasePage'
 import { Button, ButtonSize } from '../../components/ui/Button'
 import waves from '../../imgs/waves.png'; 
 
-import styles from './MainPage.module.css'
+import styles from './MainPage.module.scss'
 
 export const MainPage = () => {
   return (

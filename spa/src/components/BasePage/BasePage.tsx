@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import clsx from 'clsx'
 
 import { Header } from '../Header'
-import styles from './BasePage.module.css'
+import styles from './BasePage.module.scss'
 import { Footer } from '../Footer'
 
 export interface BasePageProps {

@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { Link } from "react-router-dom"
 
 import { Spinner, SpinnerSizes } from '../Spinner'
-import styles from './Button.module.css'
+import styles from './Button.module.scss'
 import { IButtonProps, ButtonMod, ButtonSize, ButtonColor } from './Button.types'
 
 const ButtonSpinnerSizes = {

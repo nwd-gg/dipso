@@ -1,3 +1,5 @@
+@import './vars';
+
 html,
 body {
   height: 100%;
@@ -13,9 +15,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  box-sizing: border-box;
-}
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -31,11 +30,4 @@ a {
 
 #root {
   height: 100%;
-}
-
-:root {
-  --text-color-primary: #fff;
-  --primary-color: #f8c8dc;
-  --accent-primary: #ff69b4;
-  --second-color: #45dcff;
 }

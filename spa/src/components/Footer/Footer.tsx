@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import styles from './Footer.module.css';
+import styles from './Footer.module.scss';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()

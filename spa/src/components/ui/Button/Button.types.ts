@@ -13,9 +13,6 @@ export const enum ButtonSize {
 
 export const enum ButtonColor {
   Primary = 'primary',
-  Dark = 'dark',
-  Danger = 'danger',
-  VIP = 'vip',
 }
 
 export type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement>['type']

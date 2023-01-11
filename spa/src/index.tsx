@@ -4,7 +4,7 @@ import { AppRoutes } from './routes';
 
 import reportWebVitals from './reportWebVitals';
 
-import './index.css';
+import './styles/index.scss';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

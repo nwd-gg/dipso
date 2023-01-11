@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { BasePage } from "../../components/BasePage"
 import { Button, ButtonSize } from '../../components/ui/Button'
 
-import styles from './PrepPage.module.css'
+import styles from './PrepPage.module.scss'
 
 export const PrepPage = () => {
   const handleOnClick = () => null
