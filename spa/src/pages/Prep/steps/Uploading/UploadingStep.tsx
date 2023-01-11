@@ -10,8 +10,8 @@ import { Button, ButtonSize } from '../../../../components/ui/Button'
 export const UploadingStep = () => {
   const { setFiles, uploadFiles } = useImageUpload()
 
-  const handleUpload = useCallback((file: File) => {
-    setFiles(file)
+  const handleUpload = useCallback((files: FileList) => {
+    setFiles(files)
   }, [setFiles])
 
   const handleOnClick = useCallback(() => {

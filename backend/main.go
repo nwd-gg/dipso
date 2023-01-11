@@ -35,16 +35,17 @@ func main() {
 }
 
 func handleFileUpload(c *gin.Context) {
+  var files []string
+
   form, err := c.MultipartForm()
 
   if err != nil {
     return
   }
 
-  files := form.File["files"]
-
-  for _, file := range files {
-    fmt.Println(file.Filename)
+  for file := range form.File {
+    fmt.Println(file)
+    files = append(files, file)
   }
 
   c.String(http.StatusOK, fmt.Sprintf("%d files uploaded!", len(files)))

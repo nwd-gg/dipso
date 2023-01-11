@@ -5,14 +5,17 @@ import { useCallback, useState } from 'react';
 const API_URL = 'http://localhost:8080/api/upload'
 
 export const useImageUpload = () => {
-  const [files, setFiles] = useState<File | null>(null);
+  const [files, setFiles] = useState<FileList | null>(null);
 
   const uploadFiles = useCallback(async () => {
     if (!files) return
 
     // todo validation
     const formData = new FormData();
-    formData.append('files', files);
+
+    Array.from(files).forEach((file) => {
+      formData.append(file.name, file);
+    })
 
     await axios.post(API_URL, formData, {
       headers: {
