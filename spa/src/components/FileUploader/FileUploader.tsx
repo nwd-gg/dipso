@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import clsx from 'clsx';
 
 import styles from './FileUploader.module.scss'
+import { Button, ButtonSize } from '../ui/Button';
 
 export interface FileUploaderProps {
   onChange: (file: FileList) => void
@@ -19,28 +20,41 @@ export const FileUploader = ({ onChange }: FileUploaderProps) => {
     onChange(uploadedFiles)
   }
 
+  const hasFiles = useMemo(() => files && Boolean(files.length), [files])
+  const actionText = hasFiles ? 'Replace' : 'Select';
 
   return (
     <div className={clsx(styles.root)}>
       <input
+        id="file-upload"
         multiple
         type="file"
         className={clsx(styles.input)}
         onChange={handleChange}
       />
-      {(files && Boolean(files.length)) && (
-        Array.from(files).map((file) => {
-          return (
-            <img
-              key={file.name}
-              src={URL.createObjectURL(file)}
-              alt="preview"
-              title="preview"
-              className={clsx(styles.preview)}
-            />
-          )
-        })
-      )}
+      <div
+        className={clsx(styles.previewWrap, {
+          [styles.active]: hasFiles
+        })}>
+        {(files && Boolean(files.length)) &&
+          Array.from(files).map((file) => {
+            return (
+              <img
+                key={file.name}
+                src={URL.createObjectURL(file)}
+                alt={file.name}
+                title={file.name}
+                className={clsx(styles.preview)}
+              />
+            )
+        })}
+      </div>
+      <label
+        htmlFor="file-upload"
+        className={clsx(styles.label)}
+      >
+        {actionText}
+      </label>
     </div>
   );
 };
