@@ -8,6 +8,10 @@ node_modules/
 # testing
 coverage
 
+# dev
+.env
+gcs_auth.json
+
 # production
 build
 
