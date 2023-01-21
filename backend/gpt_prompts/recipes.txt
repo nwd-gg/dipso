@@ -1,0 +1,1 @@
+Recommend cocktails that can be prepared from the list of ingredients: {{.Value}}
