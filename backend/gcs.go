@@ -14,6 +14,11 @@ const (
 	TIMEOUT_VALUE = 50 // sec
 )
 
+type GCSKey struct {
+	PrivateKey  string `json:"private_key"`
+	ClientEmail string `json:"client_email"`
+}
+
 // holds the necessary data to interact with GCS
 type ClientUploader struct {
 	cl         *storage.Client

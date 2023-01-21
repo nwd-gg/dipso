@@ -15,6 +15,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type PromptData struct {
+	Value string
+	Name  string
+	Text  string
+}
+
 func getRespFromGhatGPT(text string) (string, error) {
 	apiKey := os.Getenv("API_KEY")
 	if apiKey == "" {
