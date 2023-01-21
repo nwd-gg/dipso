@@ -145,9 +145,7 @@ func createTemplate(name string, t string) (*template.Template, error) {
 	return tmpl, nil
 }
 
-func getPromptTextFromFile(filename string) string {
-	path := "./prompts/" + filename
-
+func getPromptTextFromFile(path string) string {
 	data, err := ioutil.ReadFile(path)
 	if err != nil {
 		log.Fatalf("Failed to read file: %v", err)

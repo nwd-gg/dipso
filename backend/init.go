@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 
@@ -11,7 +12,7 @@ import (
 
 type AppSettings struct {
 	frontendUrl string
-	routerPort  string
+	appUrl      string
 }
 
 var settings *AppSettings
@@ -28,7 +29,7 @@ func Init() {
 
 	settings = &AppSettings{
 		frontendUrl: os.Getenv("FRONTEND_URL"),
-		routerPort:  os.Getenv("APP_PORT"),
+		appUrl:      os.Getenv("APP_URL"),
 	}
 
 	uploader = &ClientUploader{
@@ -37,4 +38,6 @@ func Init() {
 		projectID:  os.Getenv("GCS_PROJECT_ID"),
 		uploadPath: "test-files/",
 	}
+
+	fmt.Println(uploader.bucketName, "UPLOADER")
 }

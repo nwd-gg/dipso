@@ -30,7 +30,7 @@ func main() {
 		context.JSON(http.StatusOK, "")
 	})
 
-	router.Run(settings.routerPort)
+	router.Run(settings.appUrl)
 }
 
 func handleError(err error, c *gin.Context) bool {
