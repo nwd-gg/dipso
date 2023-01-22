@@ -52,7 +52,7 @@ jobs:
       - name: NPM deploy
         uses: nogsantos/scp-deploy@master
         with:
-          src: ./spa/build/static/*
+          src: ./spa/build/*
           host: ${{ secrets.SSH_HOST }}
           remote: ${{ secrets.SSH_DIR_STATIC }}
           port: ${{ secrets.SSH_PORT }}
