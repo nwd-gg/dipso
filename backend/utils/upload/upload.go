@@ -83,6 +83,9 @@ func validateFileType(fileHeader *multipart.FileHeader) bool {
 		"image/jpeg",
 		"image/png",
 		"image/gif",
+		"image/heif",
+		"image/heic",
+		"image/hevc",
 	}
 
 	file, err := fileHeader.Open()
