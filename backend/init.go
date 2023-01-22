@@ -1,12 +1,10 @@
 package main
 
 import (
-	"context"
-	"fmt"
 	"log"
+	gcs "nwd/dipso/utils/gcs"
 	"os"
 
-	"cloud.google.com/go/storage"
 	"github.com/joho/godotenv"
 )
 
@@ -16,28 +14,20 @@ type AppSettings struct {
 }
 
 var settings *AppSettings
-var uploader *ClientUploader
+var uploader *gcs.ClientUploader
 
 func Init() {
 	godotenv.Load()
 	os.Setenv("GOOGLE_APPLICATION_CREDENTIALS", os.Getenv("GCS_AUTH_JSON_PATH"))
-
-	client, err := storage.NewClient(context.Background())
-	if err != nil {
-		log.Fatalf("Failed to create client: %v", err)
-	}
 
 	settings = &AppSettings{
 		frontendUrl: os.Getenv("FRONTEND_URL"),
 		appUrl:      os.Getenv("APP_URL"),
 	}
 
-	uploader = &ClientUploader{
-		cl:         client,
-		bucketName: os.Getenv("GCS_BUCKET_NAME"),
-		projectID:  os.Getenv("GCS_PROJECT_ID"),
-		uploadPath: "test-files/",
+	var err error
+	uploader, err = gcs.NewClientUploader(os.Getenv("GCS_PROJECT_ID"), os.Getenv("GCS_BUCKET_NAME"), "test-files/")
+	if err != nil {
+		log.Fatalf("Failed to create client: %v", err)
 	}
-
-	fmt.Println(uploader.bucketName, "UPLOADER")
 }

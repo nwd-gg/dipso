@@ -3,6 +3,9 @@ package main
 import (
 	"mime/multipart"
 	"net/http"
+	consts "nwd/dipso/utils/consts"
+	gpt "nwd/dipso/utils/gpt"
+	vision "nwd/dipso/utils/vision"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -28,7 +31,7 @@ func handleFileUpload(c *gin.Context) {
 	var labels []string
 
 	for _, file := range files {
-		if file.Size > MAX_FILE_SIZE {
+		if file.Size > consts.MAX_FILE_SIZE {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"error": "File size exceeds the limit",
 			})
@@ -49,7 +52,7 @@ func handleFileUpload(c *gin.Context) {
 		}
 		defer blobFile.Close()
 
-		keywords, err := getKeywords(blobFile)
+		keywords, err := vision.GetKeywords(blobFile)
 		keywordsString := strings.Join(keywords, ", ")
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
@@ -61,7 +64,7 @@ func handleFileUpload(c *gin.Context) {
 		labels = append(labels, keywordsString)
 	}
 
-	story, err := getUserRecomendation(labels, c)
+	story, err := gpt.GetUserRecomendation(labels, c)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),

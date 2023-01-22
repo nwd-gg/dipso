@@ -1,4 +1,4 @@
-package main
+package vision
 
 import (
 	"context"
@@ -8,7 +8,7 @@ import (
 	vision "cloud.google.com/go/vision/apiv1"
 )
 
-func getKeywords(file io.ReadCloser) ([]string, error) {
+func GetKeywords(file io.ReadCloser) ([]string, error) {
 	ctx := context.Background()
 
 	client, err := vision.NewImageAnnotatorClient(ctx)

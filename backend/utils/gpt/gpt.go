@@ -1,4 +1,4 @@
-package main
+package gpt
 
 import (
 	"context"
@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	consts "nwd/dipso/utils/consts"
 	"os"
 	"strings"
 	"text/template"
@@ -62,7 +63,7 @@ func getKeywordsFromLabels(input []string) (string, error) {
 	templateData := &PromptData{
 		Value: strings.Join(input, ", "),
 		Name:  "keysPrompt",
-		Text:  getPromptTextFromFile(KEYWORDS_PROMPT_PATH),
+		Text:  getPromptTextFromFile(consts.KEYWORDS_PROMPT_PATH),
 	}
 	return generatePrompt(templateData)
 }
@@ -71,7 +72,7 @@ func getRecipes(input string) (string, error) {
 	templateData := &PromptData{
 		Value: input,
 		Name:  "recipePrompt",
-		Text:  getPromptTextFromFile(RECIPES_PROMPT_PATH),
+		Text:  getPromptTextFromFile(consts.RECIPES_PROMPT_PATH),
 	}
 	return generatePrompt(templateData)
 }
@@ -80,7 +81,7 @@ func getStory(input string) (string, error) {
 	templateData := &PromptData{
 		Value: input,
 		Name:  "storyPrompt",
-		Text:  getPromptTextFromFile(STORY_PROMPT_PATH),
+		Text:  getPromptTextFromFile(consts.STORY_PROMPT_PATH),
 	}
 
 	return generatePrompt(templateData)
@@ -98,7 +99,7 @@ func generatePrompt(templateData *PromptData) (string, error) {
 	return getRespFromGhatGPT(prompt)
 }
 
-func getUserRecomendation(labels []string, c *gin.Context) (string, error) {
+func GetUserRecomendation(labels []string, c *gin.Context) (string, error) {
 	validKeywords, err := getKeywordsFromLabels(labels)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{

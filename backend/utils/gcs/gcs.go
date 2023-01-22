@@ -1,4 +1,4 @@
-package main
+package gcs
 
 import (
 	"context"
@@ -21,10 +21,10 @@ type GCSKey struct {
 
 // holds the necessary data to interact with GCS
 type ClientUploader struct {
-	cl         *storage.Client
-	projectID  string
-	bucketName string
-	uploadPath string
+	Cl         *storage.Client
+	ProjectID  string
+	BucketName string
+	UploadPath string
 }
 
 // creates a new instance of ClientUploader
@@ -35,10 +35,10 @@ func NewClientUploader(projectID, bucketName, uploadPath string) (*ClientUploade
 	}
 
 	return &ClientUploader{
-		cl:         client,
-		projectID:  projectID,
-		bucketName: bucketName,
-		uploadPath: uploadPath,
+		Cl:         client,
+		ProjectID:  projectID,
+		BucketName: bucketName,
+		UploadPath: uploadPath,
 	}, nil
 }
 
@@ -48,8 +48,8 @@ func (c *ClientUploader) UploadFile(file multipart.File, object string) error {
 	ctx, cancel := context.WithTimeout(ctx, time.Second*TIMEOUT_VALUE)
 	defer cancel()
 
-	bucket := c.cl.Bucket(c.bucketName)
-	objectPath := c.uploadPath + object
+	bucket := c.Cl.Bucket(c.BucketName)
+	objectPath := c.UploadPath + object
 	wc := bucket.Object(objectPath).NewWriter(ctx)
 
 	if _, err := io.Copy(wc, file); err != nil {
