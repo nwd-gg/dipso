@@ -19,6 +19,7 @@ func main() {
 	// todo auth
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{settings.frontendUrl}
+
 	router.Use(cors.New(config))
 
 	// Recovery middleware recovers from any panics and writes a 500 if there was one.
@@ -30,15 +31,8 @@ func main() {
 		context.JSON(http.StatusOK, "")
 	})
 
-	router.Run(settings.appUrl)
-}
-
-func handleError(err error, c *gin.Context) bool {
+	err := router.Run(settings.appUrl)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": err.Error(),
-		})
-		return true
+		panic(err)
 	}
-	return false
 }
