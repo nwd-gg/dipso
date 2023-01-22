@@ -23,17 +23,17 @@
 
 .caption {
   max-width: 600px;
-  margin: 20px 0 40px 0;
-  font-size: 18px;
-  color: var(--text-color-primary);
+  margin: 20px 0 0 0;
   text-align: center;
-  font-weight: 500;
 }
 
-.title {
-  font-size: 42px;
-  color: var(--accent-primary);
-  margin: 0;
-  text-align: center;
-  font-weight: 700;
+.arrow {
+  width: 100px;
+  height: 60px;
+  margin-bottom: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('../../../../imgs/arrow.webp');
+  transform: rotate(90deg);
 }

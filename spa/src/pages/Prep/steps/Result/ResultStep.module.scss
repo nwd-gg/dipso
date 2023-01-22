@@ -1,4 +1,17 @@
 .root {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-bottom: 60px;
+}
+
+.caption {
+  text-align: center;
+}
+
+.content {
+  position: relative;
   width: 100%;
   min-height: 50px;
   max-width: 800px;
@@ -8,4 +21,18 @@
   background-color: #fff;
   border-radius: 10px;
   border: 1px solid var(--accent-primary);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: 50%;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('../../../../imgs/animals.webp');
+    transform: translateX(-50%);
+  }
 }

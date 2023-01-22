@@ -31,6 +31,12 @@ export const FileUploader = ({ onChange }: FileUploaderProps) => {
         className={clsx(styles.input)}
         onChange={handleChange}
       />
+      <label
+        htmlFor="file-upload"
+        className={clsx(styles.label)}
+      >
+        {actionText}
+      </label>
       <div
         className={clsx(styles.previewWrap, {
           [styles.active]: hasFiles
@@ -48,12 +54,6 @@ export const FileUploader = ({ onChange }: FileUploaderProps) => {
             )
         })}
       </div>
-      <label
-        htmlFor="file-upload"
-        className={clsx(styles.label)}
-      >
-        {actionText}
-      </label>
     </div>
   );
 };

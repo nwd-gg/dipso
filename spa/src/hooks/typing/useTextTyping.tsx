@@ -3,7 +3,7 @@ import { Writter } from './writer'
 
 const writter = new Writter([10, 25])
 
-export default function useTextTyping(str: string) {
+export const useTextTyping = (str: string) => {
   const [word, setWord] = useState<null | string>(null)
   const intervalRef = useRef<any>({})
   const strRef = useRef<any>({})
@@ -13,13 +13,9 @@ export default function useTextTyping(str: string) {
   }, [str])
 
   useEffect(() => {
-    const speed = writter.rd()
-
-    console.log(speed, 'speed')
-
     intervalRef.current = setInterval(() => {
       setWord(writter.typing())
-    }, speed)
+    }, writter.rd())
     return function clear() {
       clearInterval(intervalRef.current)
     }
