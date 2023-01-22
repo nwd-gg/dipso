@@ -1,0 +1,39 @@
+---
+name: Build and Deploy Static
+
+on:
+  push:
+    branches:
+      - "master"
+      - "main"
+    paths:
+      - "spa/**"
+
+jobs:
+  ci-build-n-deploy:
+    runs-on: [self-hosted]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.13.0
+
+      - name: NPM install
+        working-directory: ./spa
+        run: npm ci
+
+      - name: NPM build
+        working-directory: ./spa
+        run: npm run build
+
+      - name: NPM deploy
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: ./spa/build/*
+          host: ${{ secrets.SSH_HOST }}
+          remote: ${{ secrets.SSH_DIR_STATIC }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
