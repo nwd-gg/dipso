@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	upload "nwd/dipso/utils/upload"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -24,7 +25,7 @@ func main() {
 	// Recovery middleware recovers from any panics and writes a 500 if there was one.
 	router.Use(gin.Recovery())
 
-	router.POST("/api/upload", handleFileUpload)
+	router.POST("/api/upload", upload.HandleFileUpload)
 
 	router.GET("/", func(context *gin.Context) {
 		context.JSON(http.StatusOK, "")

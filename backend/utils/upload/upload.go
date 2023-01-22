@@ -1,4 +1,4 @@
-package main
+package upload
 
 import (
 	"mime/multipart"
@@ -11,7 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func handleFileUpload(c *gin.Context) {
+func HandleFileUpload(c *gin.Context) {
 	form, err := c.MultipartForm()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{

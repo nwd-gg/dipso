@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"mime/multipart"
-	"time"
 
 	"cloud.google.com/go/storage"
 )
@@ -42,12 +41,7 @@ func NewClientUploader(projectID, bucketName, uploadPath string) (*ClientUploade
 	}, nil
 }
 
-func (c *ClientUploader) UploadFile(file multipart.File, object string) error {
-	ctx := context.Background()
-
-	ctx, cancel := context.WithTimeout(ctx, time.Second*TIMEOUT_VALUE)
-	defer cancel()
-
+func (c *ClientUploader) UploadFile(file multipart.File, object string, ctx context.Context) error {
 	bucket := c.Cl.Bucket(c.BucketName)
 	objectPath := c.UploadPath + object
 	wc := bucket.Object(objectPath).NewWriter(ctx)
