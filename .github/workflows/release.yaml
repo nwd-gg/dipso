@@ -50,6 +50,16 @@ jobs:
           user: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
 
+      - name: Prompts Deploy
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: ./backend/gpt_prompts/*
+          host: ${{ secrets.SSH_HOST }}
+          remote: ${{ secrets.SSH_DIR_PROMPTS }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+
       - name: Start backend
         uses: appleboy/ssh-action@v0.1.7
         with:
