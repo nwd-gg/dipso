@@ -1,14 +1,19 @@
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 
+import { RequestStatus } from '../types/request';
+
 // todo: move to envs
 const API_URL = 'http://localhost:8080/api/upload'
 
 export const useImageUpload = () => {
   const [files, setFiles] = useState<FileList | null>(null);
+  const [status, setStatus] = useState<RequestStatus>(RequestStatus.Idle)
 
   const uploadFiles = useCallback(async () => {
     if (!files) return
+
+    setStatus(RequestStatus.Pending)
 
     // todo validation
     const formData = new FormData();
@@ -17,15 +22,26 @@ export const useImageUpload = () => {
       formData.append('upload', file);
     })
 
-    await axios.post(API_URL, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      }
-    })
+    try {
+      const resp = await axios.post<{message: string}>(API_URL, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
+      })
+
+      setStatus(RequestStatus.Success)
+
+      const message = (resp.data && resp.data.message) ? resp.data.message : undefined
+      return message
+    } catch (err) {
+      console.error("[useImageUpload]: error during file uploading", err)
+      setStatus(RequestStatus.Failure)
+    }
   }, [files]);
 
   return {
     files,
+    status,
     setFiles,
     uploadFiles,
   };

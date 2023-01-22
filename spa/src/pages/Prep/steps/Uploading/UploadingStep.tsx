@@ -6,9 +6,15 @@ import { useImageUpload } from '../../../../hooks/useImageUpload'
 
 import styles from './UploadingStep.module.scss'
 import { Button, ButtonSize } from '../../../../components/ui/Button'
+import { RequestStatus } from '../../../../types/request'
+import { SimpleLoader } from '../../../../components/ui/SimpleLoader'
 
-export const UploadingStep = () => {
-  const { setFiles, uploadFiles } = useImageUpload()
+export interface UploadingStepProps {
+  onFinish: (message: string) => void
+}
+
+export const UploadingStep = ({ onFinish }: UploadingStepProps) => {
+  const { setFiles, uploadFiles, status } = useImageUpload()
   const [hasFiles, setHasFiles] = useState(false)
 
   const handleUpload = useCallback((files: FileList) => {
@@ -16,16 +22,27 @@ export const UploadingStep = () => {
     setHasFiles(true)
   }, [setFiles])
 
-  const handleOnClick = useCallback(() => {
-    uploadFiles();
-  }, [uploadFiles])
+  const handleOnClick = useCallback(async () => {
+    const result = await uploadFiles();
+
+    if (result) {
+      onFinish(result)
+    }
+  }, [uploadFiles, onFinish])
+
+  const isLoading = status === RequestStatus.Pending
+  const isFailure = status === RequestStatus.Failure
 
   return (
     <div className={clsx(styles.root)}>
-      <FileUploader
-        onChange={handleUpload}
-      />
-      {hasFiles && (
+      {isLoading && <SimpleLoader />}
+      {isFailure && <h1>ERROR</h1>}
+      {!isLoading &&
+        <FileUploader
+          onChange={handleUpload}
+        />
+      }
+      {(!isLoading && hasFiles) && (
         <div className={clsx(styles.row)}>
           <div className={clsx(styles.title)}>What's next?</div>
           <p className={clsx(styles.caption)}>

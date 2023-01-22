@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import clsx from 'clsx';
 
 import styles from './FileUploader.module.scss'
-import { Button, ButtonSize } from '../ui/Button';
 
 export interface FileUploaderProps {
   onChange: (file: FileList) => void
