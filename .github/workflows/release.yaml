@@ -1,0 +1,60 @@
+---
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - "master"
+      - "main"
+
+jobs:
+  ci-build-n-deploy:
+    runs-on: [self-hosted]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.13.0
+
+      - name: Install go dependencies
+        working-directory: ./backend
+        run: go get .
+
+      - name: GO build
+        working-directory: ./backend
+        run: go build -v -o dipso .
+
+      - name: GO Deploy
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: ./backend/dipso
+          host: ${{ secrets.SSH_HOST }}
+          remote: ${{ secrets.SSH_DIR }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+
+      - name: NPM install
+        working-directory: ./spa
+        run: npm ci
+
+      - name: NPM build
+        working-directory: ./spa
+        run: npm run build
+
+      - name: NPM deploy
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: ./spa/build/static/*
+          host: ${{ secrets.SSH_HOST }}
+          remote: ${{ secrets.SSH_DIR_STATIC }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
