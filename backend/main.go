@@ -26,7 +26,7 @@ func main() {
 	// Recovery middleware recovers from any panics and writes a 500 if there was one.
 	router.Use(gin.Recovery())
 
-	router.POST("/api/upload", upload.HandleFileUpload)
+	router.POST("/upload", upload.HandleFileUpload)
 
 	router.GET("/", func(context *gin.Context) {
 		context.JSON(http.StatusOK, "")
