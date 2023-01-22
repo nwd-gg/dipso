@@ -3,8 +3,7 @@ import { useCallback, useState } from 'react';
 
 import { RequestStatus } from '../types/request';
 
-// todo: move to envs
-const API_URL = 'http://localhost:8080/api/upload'
+const API_URL: string = process.env.REACT_APP_API_URL || ""
 
 export const useImageUpload = () => {
   const [files, setFiles] = useState<FileList | null>(null);
@@ -23,7 +22,7 @@ export const useImageUpload = () => {
     })
 
     try {
-      const resp = await axios.post<{message: string}>(API_URL, formData, {
+      const resp = await axios.post<{message: string}>(`${API_URL}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }
