@@ -35,27 +35,29 @@ export const UploadingStep = ({ onFinish }: UploadingStepProps) => {
 
   return (
     <div className={clsx(styles.root)}>
-      {isLoading && <SimpleLoader />}
-      {isFailure && <h1>ERROR</h1>}
-      {!isLoading &&
-        <FileUploader
-          onChange={handleUpload}
-        />
-      }
-      {(!isLoading && hasFiles) && (
-        <div className={clsx(styles.row)}>
-          <div className={clsx(styles.title)}>What's next?</div>
-          <p className={clsx(styles.caption)}>
-            Look at the downloaded files, if that's all then let's move on. Press the button and send it to Google Lens AI to figure out what we could suggest
-          </p>
-          <Button
-            size={ButtonSize.Large}
-            onClick={handleOnClick}
-          >
-            Beep Boop
-          </Button>
-        </div>
-      )}
+      <div className={clsx(styles.body)}>
+        {isLoading && <SimpleLoader />}
+        {isFailure && <h1>ERROR</h1>}
+        {!isLoading &&
+          <FileUploader
+            onChange={handleUpload}
+          />
+        }
+        {(!isLoading && hasFiles) && (
+          <div className={clsx(styles.row)}>
+            <div className={clsx(styles.title)}>What's next?</div>
+            <p className={clsx(styles.caption)}>
+              Look at the downloaded files, if that's all then let's move on. Press the button and send it to Google Lens AI to figure out what we could suggest
+            </p>
+            <Button
+              size={ButtonSize.Large}
+              onClick={handleOnClick}
+            >
+              Beep Boop
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

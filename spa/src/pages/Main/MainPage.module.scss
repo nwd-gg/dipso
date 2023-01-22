@@ -1,24 +1,14 @@
 .title {
   max-width: 900px;
-  font-size: 42px;
-  color: var(--accent-primary);
-  margin: 0;
-  text-align: center;
-  font-weight: 700;
 }
-
 
 .desc {
   width: 100%;
   max-width: 520px;
-  width: auto;
-  font-size: 18px;
-  color: var(--text-color-primary);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-weight: 500;
 }
 
 .actions {

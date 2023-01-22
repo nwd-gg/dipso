@@ -2,21 +2,25 @@ import clsx from 'clsx'
 
 import { BasePage } from '../../components/BasePage'
 import { Button, ButtonSize } from '../../components/ui/Button'
+import { Caption } from '../../components/ui/Caption';
+import { Title } from '../../components/ui/Title';
+import { mainPageText } from '../../constants/texts';
 import waves from '../../imgs/waves.png'; 
 
 import styles from './MainPage.module.scss'
 
 export const MainPage = () => {
+  const { title, caption } = mainPageText;
+
   return (
     <BasePage>
-      <div className={clsx(styles.title)}>Give us chance to suggest drink or another stuff for homechill.</div>
+      <Title className={clsx(styles.title)}>
+       {title}
+      </Title>
       <div className={clsx(styles.desc)}>
-        <p>
-          Simple fun pet project across ChatGPT and Google Lens functionality to make homechill a bit more pleasant.
-        </p>
-        <p>
-          Give us chance to suggest drink or another stuff for homechill.
-        </p>
+        <Caption>
+          {caption}
+        </Caption>
         <img
           src={waves}
           className={clsx(styles.wavesImg)}
