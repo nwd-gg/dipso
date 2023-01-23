@@ -5,6 +5,7 @@ go 1.19
 require (
 	cloud.google.com/go/storage v1.28.1
 	github.com/PullRequestInc/go-gpt3 v1.1.11
+	github.com/adrium/goheif v0.0.0-20230113233934-ca402e77a786
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.8.2
 	github.com/joho/godotenv v1.4.0
@@ -13,6 +14,7 @@ require (
 require (
 	cloud.google.com/go/longrunning v0.3.0 // indirect
 	cloud.google.com/go/vision/v2 v2.5.0 // indirect
+	github.com/rwcarlsen/goexif v0.0.0-20190401172101-9e8deecbddbd // indirect
 )
 
 require (

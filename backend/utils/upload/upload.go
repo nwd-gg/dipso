@@ -1,6 +1,10 @@
 package upload
 
 import (
+	"bytes"
+	"image"
+	"image/jpeg"
+	"log"
 	"mime/multipart"
 	"net/http"
 	consts "nwd/dipso/utils/consts"
@@ -8,8 +12,17 @@ import (
 	vision "nwd/dipso/utils/vision"
 	"strings"
 
+	"github.com/adrium/goheif"
 	"github.com/gin-gonic/gin"
 )
+
+type readerWrapper struct {
+	*bytes.Reader
+}
+
+func (r *readerWrapper) Close() error {
+	return nil
+}
 
 func HandleFileUpload(c *gin.Context) {
 	form, err := c.MultipartForm()
@@ -37,7 +50,12 @@ func HandleFileUpload(c *gin.Context) {
 			})
 			return
 		}
-		if !validateFileType(file) {
+
+		isValid, fileType := validateFileType(file)
+
+		log.Println(isValid, fileType)
+
+		if !isValid {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"error": "Invalid file type",
 			})
@@ -51,6 +69,29 @@ func HandleFileUpload(c *gin.Context) {
 			return
 		}
 		defer blobFile.Close()
+
+		if fileType == "image/heic" || fileType == "image/heif" {
+			img, err := covertHeic(blobFile)
+
+			if err != nil {
+				log.Fatalf("Failed to convert HEIC file")
+				return
+			}
+
+			buf := bytes.NewBuffer(nil)
+			err = jpeg.Encode(buf, img, nil)
+
+			if err != nil {
+				c.JSON(http.StatusInternalServerError, gin.H{
+					"error": "Failed to convert HEIC file: " + err.Error(),
+				})
+				return
+			}
+
+			reader := bytes.NewReader(buf.Bytes())
+			wrappedReader := &readerWrapper{reader}
+			blobFile = wrappedReader
+		}
 
 		keywords, err := vision.GetKeywords(blobFile)
 		keywordsString := strings.Join(keywords, ", ")
@@ -77,7 +118,7 @@ func HandleFileUpload(c *gin.Context) {
 	})
 }
 
-func validateFileType(fileHeader *multipart.FileHeader) bool {
+func validateFileType(fileHeader *multipart.FileHeader) (bool, string) {
 	// more types
 	validTypes := []string{
 		"image/jpeg",
@@ -90,7 +131,7 @@ func validateFileType(fileHeader *multipart.FileHeader) bool {
 
 	file, err := fileHeader.Open()
 	if err != nil {
-		return false
+		return false, ""
 	}
 	defer file.Close()
 
@@ -98,14 +139,26 @@ func validateFileType(fileHeader *multipart.FileHeader) bool {
 	buffer := make([]byte, 512)
 	_, err = file.Read(buffer)
 	if err != nil {
-		return false
+		return false, ""
 	}
 
 	filetype := http.DetectContentType(buffer)
 	for _, v := range validTypes {
 		if v == filetype {
-			return true
+			return true, filetype
 		}
 	}
-	return false
+	return false, filetype
+}
+
+func covertHeic(file multipart.File) (image.Image, error) {
+	img, err := goheif.Decode(file)
+
+	if err != nil {
+		log.Fatalf("Failed to parse %s: %v\n", file, err)
+
+		return nil, err
+	}
+
+	return img, nil
 }
