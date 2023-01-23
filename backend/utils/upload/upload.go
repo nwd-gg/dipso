@@ -52,9 +52,6 @@ func HandleFileUpload(c *gin.Context) {
 		}
 
 		isValid, fileType := validateFileType(file)
-
-		log.Println(isValid, fileType)
-
 		if !isValid {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"error": "Invalid file type",
