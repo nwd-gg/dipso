@@ -70,7 +70,7 @@ func HandleFileUpload(c *gin.Context) {
 		}
 		defer blobFile.Close()
 
-		if fileType == "image/heic" || fileType == "image/heif" {
+		if fileType == "image/heic" || fileType == "image/heif" || fileType == "application/octet-stream" {
 			img, err := covertHeic(blobFile)
 
 			if err != nil {
@@ -126,7 +126,7 @@ func validateFileType(fileHeader *multipart.FileHeader) (bool, string) {
 		"image/gif",
 		"image/heif",
 		"image/heic",
-		"image/hevc",
+		"application/octet-stream",
 	}
 
 	file, err := fileHeader.Open()
