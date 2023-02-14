@@ -1,8 +1,6 @@
-package main
+package converter
 
 import (
-	"fmt"
-
 	"gopkg.in/gographics/imagick.v3/imagick"
 )
 
@@ -32,9 +30,9 @@ func ConvertImage(inputPath, outputPath string) error {
 }
 
 // Example how to use it
-func main() {
-	err := ConvertImage("input.jpg", "output.png")
-	if err != nil {
-		fmt.Println(err)
-	}
-}
+//func main() {
+//	err := ConvertImage("input.jpg", "output.png")
+//	if err != nil {
+//		fmt.Println(err)
+//	}
+//}
