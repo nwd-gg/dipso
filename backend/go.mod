@@ -5,17 +5,16 @@ go 1.19
 require (
 	cloud.google.com/go/storage v1.28.1
 	github.com/PullRequestInc/go-gpt3 v1.1.11
-	github.com/adrium/goheif v0.0.0-20230113233934-ca402e77a786
+	github.com/davidbyttow/govips/v2 v2.11.0
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.8.2
 	github.com/joho/godotenv v1.4.0
-	gopkg.in/gographics/imagick.v3 v3.4.2
 )
 
 require (
 	cloud.google.com/go/longrunning v0.3.0 // indirect
 	cloud.google.com/go/vision/v2 v2.5.0 // indirect
-	github.com/rwcarlsen/goexif v0.0.0-20190401172101-9e8deecbddbd // indirect
+	golang.org/x/image v0.5.0 // indirect
 )
 
 require (
@@ -44,10 +43,10 @@ require (
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	golang.org/x/crypto v0.0.0-20211215153901-e495a2d5b3d3 // indirect
-	golang.org/x/net v0.4.0 // indirect
+	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20221014153046-6fdb5e3db783 // indirect
-	golang.org/x/sys v0.3.0 // indirect
-	golang.org/x/text v0.5.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/api v0.103.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
