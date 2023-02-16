@@ -44,7 +44,7 @@ func getRespFromGhatGPT(text string) (string, error) {
 		PresencePenalty:  0.0,
 	})
 	if err != nil {
-		return "", fmt.Errorf("Failed to complete text: %v", err)
+		return "", fmt.Errorf("failed to complete text: %v", err)
 	}
 
 	// Collect the responses
@@ -59,29 +59,21 @@ func getRespFromGhatGPT(text string) (string, error) {
 	return respText, nil
 }
 
-func getKeywordsFromLabels(input []string) (string, error) {
+func classifyLabels(input []string) (string, error) {
 	templateData := &PromptData{
 		Value: strings.Join(input, ", "),
 		Name:  "keysPrompt",
-		Text:  getPromptTextFromFile(consts.KEYWORDS_PROMPT_PATH),
+		Text:  getPromptTextFromFile(consts.CLASSIFY_PROMPT_PATH),
 	}
+
 	return generatePrompt(templateData)
 }
 
-func getRecipes(input string) (string, error) {
+func createGuide(input string) (string, error) {
 	templateData := &PromptData{
 		Value: input,
-		Name:  "recipePrompt",
-		Text:  getPromptTextFromFile(consts.RECIPES_PROMPT_PATH),
-	}
-	return generatePrompt(templateData)
-}
-
-func getStory(input string) (string, error) {
-	templateData := &PromptData{
-		Value: input,
-		Name:  "storyPrompt",
-		Text:  getPromptTextFromFile(consts.STORY_PROMPT_PATH),
+		Name:  "guidePrompt",
+		Text:  getPromptTextFromFile(consts.GUIDE_PROMPT_PATH),
 	}
 
 	return generatePrompt(templateData)
@@ -96,18 +88,13 @@ func generatePrompt(templateData *PromptData) (string, error) {
 		log.Fatalf("Failed to create template: %v", err)
 	}
 	prompt := createPrompt(template, templateData)
+
 	return getRespFromGhatGPT(prompt)
 }
 
 func GetUserRecomendation(labels []string, c *gin.Context) (string, error) {
-	validKeywords, err := getKeywordsFromLabels(labels)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error(),
-		})
-		return "", err
-	}
-	recipes, err := getRecipes(validKeywords)
+	validKeywords, err := classifyLabels(labels)
+
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
@@ -115,14 +102,14 @@ func GetUserRecomendation(labels []string, c *gin.Context) (string, error) {
 		return "", err
 	}
 
-	story, err := getStory(recipes)
+	guide, err := createGuide(validKeywords)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
 		return "", err
 	}
-	return story, nil
+	return guide, nil
 }
 
 func createPrompt(t *template.Template, data interface{}) string {
@@ -136,7 +123,7 @@ func createPrompt(t *template.Template, data interface{}) string {
 
 func createTemplate(name string, t string) (*template.Template, error) {
 	if name == "" || t == "" {
-		return nil, errors.New("Name and Text can not be empty")
+		return nil, errors.New("name and text can not be empty")
 	}
 
 	tmpl, err := template.New(name).Parse(t)

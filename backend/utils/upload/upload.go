@@ -2,7 +2,6 @@ package upload
 
 import (
 	"bytes"
-	"fmt"
 	"io"
 	"mime/multipart"
 	"net/http"
@@ -93,8 +92,6 @@ func HandleFileUpload(c *gin.Context) {
 		labels = append(labels, keywordsString)
 	}
 
-	fmt.Println("LABELS", labels)
-
 	story, err := gpt.GetUserRecomendation(labels, c)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -130,8 +127,6 @@ func validateFileType(fileHeader *multipart.FileHeader) (bool, string) {
 	}
 
 	filetype := http.DetectContentType(buffer)
-
-	fmt.Println("filetype!!!!!!!!!", filetype)
 
 	for _, v := range validTypes {
 		if v == filetype {

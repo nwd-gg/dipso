@@ -1,1 +1,0 @@
-Extract familiar to you ingredients for making cocktails from text: {{.Value}}
