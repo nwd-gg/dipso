@@ -4,7 +4,7 @@ export class Writter {
   private memoWord: string | undefined
   private nextWord: string | undefined
   private word: string | null = null
-  private eventQueue: string[]
+  private eventQueue: Array<string>
   private dummyQueue: Array<string | undefined>
   private erasing: boolean | undefined
   private speedRange: [number, number]
