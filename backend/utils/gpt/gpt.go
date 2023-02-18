@@ -93,6 +93,7 @@ func generatePrompt(templateData *PromptData) (string, error) {
 }
 
 func GetUserRecomendation(labels []string, c *gin.Context) (string, error) {
+	fmt.Println("Labels:", labels)
 	validKeywords, err := classifyLabels(labels)
 
 	if err != nil {
@@ -102,6 +103,7 @@ func GetUserRecomendation(labels []string, c *gin.Context) (string, error) {
 		return "", err
 	}
 
+	fmt.Println("validKeywords: ", validKeywords)
 	guide, err := createGuide(validKeywords)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{

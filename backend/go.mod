@@ -4,16 +4,16 @@ go 1.19
 
 require (
 	cloud.google.com/go/storage v1.28.1
+	cloud.google.com/go/vision/v2 v2.5.0
 	github.com/PullRequestInc/go-gpt3 v1.1.11
 	github.com/davidbyttow/govips/v2 v2.11.0
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.8.2
+	github.com/google/martian/v3 v3.2.1
 	github.com/joho/godotenv v1.4.0
 )
 
 require (
-	cloud.google.com/go/longrunning v0.3.0 // indirect
-	cloud.google.com/go/vision/v2 v2.5.0 // indirect
 	golang.org/x/image v0.5.0 // indirect
 )
 
@@ -48,10 +48,10 @@ require (
 	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
-	google.golang.org/api v0.103.0 // indirect
+	google.golang.org/api v0.103.0
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20221201164419-0e50fba7f41c // indirect
-	google.golang.org/grpc v1.50.1 // indirect
+	google.golang.org/genproto v0.0.0-20221201164419-0e50fba7f41c
+	google.golang.org/grpc v1.50.1
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
