@@ -33,7 +33,7 @@ func Init() {
 		appUrl:      os.Getenv("APP_URL"),
 	}
 
-	_, err = gcs.NewClientUploader(os.Getenv("GCS_PROJECT_ID"), os.Getenv("GCS_BUCKET_NAME"), "test-files/")
+	err = gcs.NewClientUploader(os.Getenv("GCS_PROJECT_ID"), os.Getenv("GCS_BUCKET_NAME"), "test-files/")
 	if err != nil {
 		log.Fatalf("Failed to create client: %v", err)
 	}
