@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	cloud.google.com/go/storage v1.28.1
+	cloud.google.com/go/vision v1.2.0
 	cloud.google.com/go/vision/v2 v2.5.0
 	github.com/PullRequestInc/go-gpt3 v1.1.11
 	github.com/davidbyttow/govips/v2 v2.11.0
@@ -13,7 +14,10 @@ require (
 	github.com/joho/godotenv v1.4.0
 )
 
-require golang.org/x/image v0.5.0 // indirect
+require (
+	cloud.google.com/go/longrunning v0.3.0 // indirect
+	golang.org/x/image v0.5.0 // indirect
+)
 
 require (
 	cloud.google.com/go v0.105.0 // indirect

@@ -1,26 +1,15 @@
 package upload
 
 import (
-	"bytes"
-	"io"
 	"mime/multipart"
 	"net/http"
 	consts "nwd/dipso/utils/consts"
-	"nwd/dipso/utils/gpt"
-	"nwd/dipso/utils/image_handler"
+	gpt "nwd/dipso/utils/gpt"
 	vision "nwd/dipso/utils/vision"
 	"strings"
 
 	"github.com/gin-gonic/gin"
 )
-
-type readerWrapper struct {
-	*bytes.Reader
-}
-
-func (r *readerWrapper) Close() error {
-	return nil
-}
 
 func HandleFileUpload(c *gin.Context) {
 	form, err := c.MultipartForm()
@@ -48,9 +37,7 @@ func HandleFileUpload(c *gin.Context) {
 			})
 			return
 		}
-
-		isValid, _ := validateFileType(file)
-		if !isValid {
+		if !validateFileType(file) {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"error": "Invalid file type",
 			})
@@ -64,21 +51,6 @@ func HandleFileUpload(c *gin.Context) {
 			return
 		}
 		defer blobFile.Close()
-
-		buf := bytes.NewBuffer(nil)
-		_, err = io.Copy(buf, blobFile)
-
-		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "Failed to handle image file: " + err.Error(),
-			})
-			return
-		}
-
-		handledImage := image_handler.HandleImage(buf.Bytes())
-		reader := bytes.NewReader(handledImage)
-		wrappedReader := &readerWrapper{reader}
-		blobFile = wrappedReader
 
 		keywords, err := vision.GetKeywords(blobFile)
 		keywordsString := strings.Join(keywords, ", ")
@@ -105,17 +77,20 @@ func HandleFileUpload(c *gin.Context) {
 	})
 }
 
-func validateFileType(fileHeader *multipart.FileHeader) (bool, string) {
+func validateFileType(fileHeader *multipart.FileHeader) bool {
+	// more types
 	validTypes := []string{
 		"image/jpeg",
 		"image/png",
 		"image/gif",
-		"application/octet-stream",
+		"image/heif",
+		"image/heic",
+		"image/hevc",
 	}
 
 	file, err := fileHeader.Open()
 	if err != nil {
-		return false, ""
+		return false
 	}
 	defer file.Close()
 
@@ -123,15 +98,14 @@ func validateFileType(fileHeader *multipart.FileHeader) (bool, string) {
 	buffer := make([]byte, 512)
 	_, err = file.Read(buffer)
 	if err != nil {
-		return false, ""
+		return false
 	}
 
 	filetype := http.DetectContentType(buffer)
-
 	for _, v := range validTypes {
 		if v == filetype {
-			return true, filetype
+			return true
 		}
 	}
-	return false, filetype
+	return false
 }
