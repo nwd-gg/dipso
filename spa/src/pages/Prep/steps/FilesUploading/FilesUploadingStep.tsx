@@ -76,7 +76,7 @@ export const FilesUploadingStep = ({ onFinish }: UploadingStepProps) => {
             >
               Beep Boop
             </Button>
-        </div>
+          </div>
         )}
       </div>)}
     </div>

@@ -1,15 +1,19 @@
+import clsx from 'clsx'
+
 import { prepPageText } from '../../../../constants/texts'
 import { Title } from "../../../../components/ui/Title"
 import { TextareaField, TextareaFieldProps } from '../../../../components/ui/Textarea'
+import { Caption } from '../../../../components/ui/Caption'
+import { Button, ButtonSize } from '../../../../components/ui/Button'
 
 import styles from './IngredientsArea.module.scss'
-import { Caption } from '../../../../components/ui/Caption'
 
 export interface IngredientsAreaProps {
   onChange?: TextareaFieldProps['onChange']
+  onBtnClick?: (event: React.MouseEvent) => void
 }
 
-export const IngredientsArea = ({ onChange }: IngredientsAreaProps) => {
+export const IngredientsArea = ({ onChange, onBtnClick }: IngredientsAreaProps) => {
   return (
     <div className={styles.root}>
       <Title>{prepPageText.upload.title.intro}</Title>
@@ -18,6 +22,15 @@ export const IngredientsArea = ({ onChange }: IngredientsAreaProps) => {
           Write your available ingredients separated by commas
         </Caption>
         <TextareaField name="ingredients" onChange={onChange} />
+        <div className={clsx(styles.row)}>
+          <div className={clsx(styles.arrow)}></div>
+          <Button
+            size={ButtonSize.Large}
+            onClick={onBtnClick}
+          >
+            Beep Boop
+          </Button>
+        </div>
       </div>
     </div>
   )
