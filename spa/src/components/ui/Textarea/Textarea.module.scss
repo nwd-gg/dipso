@@ -1,0 +1,14 @@
+.root {
+  width: 100%;
+}
+
+.textarea {
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  resize: none;
+  border-radius: 10px;
+  font-size: 16px;
+  border: 1px solid var(--accent-primary);
+  outline: none;
+}

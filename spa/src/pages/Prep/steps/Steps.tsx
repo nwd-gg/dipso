@@ -1,10 +1,15 @@
 import { useState } from 'react'
 
+import { IngredientsArea } from './IngredientsArea'
 import { ResultStep } from './Result'
-import { UploadingStep } from './Uploading'
 
 export const PrepSteps = () => {
+  const [ingredients, setIngredients] = useState<null | string>(null)
   const [message, setMessage] = useState<null | string>(null)
+
+  const handleOnChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    setIngredients((event.target as HTMLInputElement).value)
+  }
 
   const handleUpload = (text: string) => {
     setMessage(text)
@@ -12,7 +17,7 @@ export const PrepSteps = () => {
 
   return (
     <>
-      {!Boolean(message) && <UploadingStep onFinish={handleUpload}/>}
+      {!Boolean(message) && <IngredientsArea onChange={handleOnChange} />}
       {(message && Boolean(message)) && <ResultStep result={message} />}
     </>
   )

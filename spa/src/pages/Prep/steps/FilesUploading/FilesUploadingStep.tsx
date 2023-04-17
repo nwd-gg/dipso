@@ -4,13 +4,13 @@ import clsx from 'clsx'
 import { FileUploader } from '../../../../components/FileUploader'
 import { useImageUpload } from '../../../../hooks/useImageUpload'
 
-import styles from './UploadingStep.module.scss'
 import { Button, ButtonSize } from '../../../../components/ui/Button'
 import { RequestStatus } from '../../../../types/request'
 import { SimpleLoader } from '../../../../components/ui/SimpleLoader'
 import { prepPageText } from '../../../../constants/texts'
 import { Title } from '../../../../components/ui/Title'
 import { Caption } from '../../../../components/ui/Caption'
+import styles from './FilesUploadingStep.module.scss'
 
 const getText = (textType: 'caption' | 'title', hasFiles: boolean, isLoading: boolean) => {
   if (isLoading) {
@@ -28,7 +28,7 @@ export interface UploadingStepProps {
   onFinish: (message: string) => void
 }
 
-export const UploadingStep = ({ onFinish }: UploadingStepProps) => {
+export const FilesUploadingStep = ({ onFinish }: UploadingStepProps) => {
   const { setFiles, uploadFiles, status } = useImageUpload()
   const [hasFiles, setHasFiles] = useState(false)
 

@@ -5,7 +5,7 @@ export const mainPageText = {
 
 export const prepPageText = {
   upload: {
-      title: {
+    title: {
       intro: 'Let see what you got here',
       review: 'What\'s next?',
       uploading: '',

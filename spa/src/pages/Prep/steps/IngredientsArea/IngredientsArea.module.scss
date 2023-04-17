@@ -1,0 +1,11 @@
+.root {
+  width: 100%;
+  max-width: 550px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
