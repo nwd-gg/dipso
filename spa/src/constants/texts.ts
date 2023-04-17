@@ -7,13 +7,9 @@ export const prepPageText = {
   upload: {
     title: {
       intro: 'Let see what you got here',
-      review: 'What\'s next?',
-      uploading: '',
     },
     caption: {
-      intro: 'Make photos of your products or upload from gallery',
-      review: 'Look at the preview of files, replace it if needed. Then press the "Beep Boop" button and send it to us to see POWER of AI',
-      uploading: '',
+      intro: 'Write your available ingredients separated by commas',
     }
   },
   result: {

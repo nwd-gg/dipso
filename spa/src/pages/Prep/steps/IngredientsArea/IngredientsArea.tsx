@@ -19,7 +19,7 @@ export const IngredientsArea = ({ onChange, onBtnClick }: IngredientsAreaProps) 
       <Title>{prepPageText.upload.title.intro}</Title>
       <div className={styles.inner}>
         <Caption>
-          Write your available ingredients separated by commas
+          {prepPageText.upload.caption.intro}
         </Caption>
         <TextareaField name="ingredients" onChange={onChange} />
         <div className={clsx(styles.row)}>
