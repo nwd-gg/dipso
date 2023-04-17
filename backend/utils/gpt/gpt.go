@@ -59,9 +59,9 @@ func getRespFromGhatGPT(text string) (string, error) {
 	return respText, nil
 }
 
-func classifyLabels(input []string) (string, error) {
+func classifyLabels(input string) (string, error) {
 	templateData := &PromptData{
-		Value: strings.Join(input, ", "),
+		Value: input,
 		Name:  "keysPrompt",
 		Text:  getPromptTextFromFile(consts.CLASSIFY_PROMPT_PATH),
 	}
@@ -92,7 +92,7 @@ func generatePrompt(templateData *PromptData) (string, error) {
 	return getRespFromGhatGPT(prompt)
 }
 
-func GetUserRecomendation(labels []string, c *gin.Context) (string, error) {
+func GetUserRecomendation(labels string, c *gin.Context) (string, error) {
 	fmt.Println("Labels:", labels)
 	validKeywords, err := classifyLabels(labels)
 

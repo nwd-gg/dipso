@@ -64,7 +64,7 @@ func HandleFileUpload(c *gin.Context) {
 		labels = append(labels, keywordsString)
 	}
 
-	story, err := gpt.GetUserRecomendation(labels, c)
+	story, err := gpt.GetUserRecomendation(strings.Join(labels, ", "), c)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
