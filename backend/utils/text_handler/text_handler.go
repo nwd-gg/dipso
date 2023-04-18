@@ -19,6 +19,11 @@ func HandleText(c *gin.Context) {
 		return
 	}
 
+	if body.Text == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "empty 'text' field"})
+		return
+	}
+
 	story, err := gpt.GetUserRecomendation(body.Text, c)
 
 	if err != nil {
