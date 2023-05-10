@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useMouseMove } from '../../hooks/useMouseMove';
 
 import styles from './Mascot.module.scss';
 
@@ -7,6 +8,7 @@ export interface MascotProps {
 }
 
 export const Mascot = ({ className }: MascotProps) => {
+  useMouseMove()
 
   return (
     <div className={clsx(styles.container, className)}>
