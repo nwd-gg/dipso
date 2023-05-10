@@ -1,0 +1,24 @@
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.monitor {
+  position: relative;
+  width: 700px;
+  height: 700px;
+  background-image: url('../../imgs/monitor.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.mascot {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

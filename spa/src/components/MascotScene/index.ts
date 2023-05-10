@@ -1,0 +1,1 @@
+export { MascotScene } from './MascotScene'
