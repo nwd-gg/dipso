@@ -13,9 +13,9 @@ const throttler = (function() {
 })();
 
 export const throttle = (callback: Function, delay?: number) => {
-  return (args: unknown) => {
+  return (...args: unknown[]) => {
     throttler(() => {
-      callback(args);
+      callback(...args);
     }, delay);
   }
 }

@@ -15,14 +15,14 @@
   height: 13px;
   background-color: #000;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  transition: tranfor .25s ease-out;
 
   &.right {
-    right: 88px;
+    right: 97px;
   }
 
   &.left {
-    left: 97px;
+    left: 92px;
   }
 }
 
