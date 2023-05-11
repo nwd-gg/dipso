@@ -15,10 +15,7 @@ export const TextareaField = ({ label, className, ...props }: TextareaFieldProps
           {label}
         </label>
       )}
-      <textarea
-        className={clsx(styles.textarea, className)}
-        {...props}
-      />
+      <textarea className={clsx(styles.textarea, className)} {...props} />
     </div>
   )
 }

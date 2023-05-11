@@ -1,7 +1,7 @@
-import { createElement } from 'react';
+import { createElement } from 'react'
 import clsx from 'clsx'
 
-import { TextComponentProps } from './Text.types';
+import { TextComponentProps } from './Text.types'
 import styles from './Text.module.scss'
 
 export const TextComponent = ({ children, tag = 'p', className }: TextComponentProps) => {
@@ -12,6 +12,6 @@ export const TextComponent = ({ children, tag = 'p', className }: TextComponentP
     {
       className: finalClassName,
     },
-    children,
-  );
+    children
+  )
 }

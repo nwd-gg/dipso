@@ -1,8 +1,8 @@
-import clsx from 'clsx';
+import clsx from 'clsx'
 
-import { Mascot } from '../Mascot';
+import { Mascot } from '../Mascot'
 
-import styles from './MascotScene.module.scss';
+import styles from './MascotScene.module.scss'
 
 export const MascotScene = () => {
   return (

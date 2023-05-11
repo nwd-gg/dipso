@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 import { Spinner, SpinnerSizes } from '../Spinner'
 import styles from './Button.module.scss'

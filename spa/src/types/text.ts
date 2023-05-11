@@ -1,3 +1,3 @@
-import { ReactHTML } from "react";
+import { ReactHTML } from 'react'
 
-export type TextTag = keyof ReactHTML;
+export type TextTag = keyof ReactHTML

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from 'react'
 import { Writter } from './writer'
 
 const writter = new Writter([10, 25])

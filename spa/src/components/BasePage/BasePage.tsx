@@ -14,9 +14,7 @@ export const BasePage = ({ children }: BasePageProps) => {
     <div className={clsx(styles.root)}>
       <Header />
       <main className={styles.main}>
-        <div className={styles.container}>
-          {children}
-        </div>
+        <div className={styles.container}>{children}</div>
       </main>
       <Footer />
     </div>

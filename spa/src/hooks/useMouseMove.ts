@@ -2,11 +2,11 @@ import { useLayoutEffect, useState } from 'react'
 import { throttle } from '../utils/throttle'
 
 export const useMouseMove = () => {
-  const [state, setState] = useState({x: 0, y: 0})
+  const [state, setState] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = throttle((e: MouseEvent) => {
     e.preventDefault()
-    setState(state => ({...state, x: e.clientX, y: e.clientY}))
+    setState((state) => ({ ...state, x: e.clientX, y: e.clientY }))
   }, 10)
 
   useLayoutEffect(() => {

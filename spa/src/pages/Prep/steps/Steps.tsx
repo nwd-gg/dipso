@@ -7,6 +7,7 @@ import { useTextUpload } from '../../../hooks/useTextUpload'
 import { RequestStatus } from '../../../types/request'
 import { IngredientsArea } from './IngredientsArea'
 import { ResultStep } from './Result'
+import { MascotScene } from '../../../components/MascotScene'
 
 export const PrepSteps = () => {
   const [message, setMessage] = useState<null | string>(null)
@@ -38,12 +39,13 @@ export const PrepSteps = () => {
 
   return (
     <>
-      {!Boolean(message) && (
+      {/* {!Boolean(message) && (
         <IngredientsArea
           onChange={handleOnChange}
           onBtnClick={handleOnClick}
-        />)}
-      {(message && Boolean(message)) && <ResultStep result={message} />}
+        />)} */}
+      {/* {(message && Boolean(message)) && <ResultStep result={message} />} */}
+      <MascotScene />
     </>
   )
 }

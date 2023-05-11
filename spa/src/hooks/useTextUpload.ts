@@ -1,9 +1,9 @@
-import axios from 'axios';
-import { useState } from 'react';
+import axios from 'axios'
+import { useState } from 'react'
 
-import { RequestStatus } from '../types/request';
+import { RequestStatus } from '../types/request'
 
-const API_URL: string = process.env.REACT_APP_API_URL || ""
+const API_URL: string = process.env.REACT_APP_API_URL || ''
 
 export const useTextUpload = () => {
   const [text, setText] = useState<string | null>(null)
@@ -15,14 +15,14 @@ export const useTextUpload = () => {
     setStatus(RequestStatus.Pending)
 
     try {
-      const resp = await axios.post<{message: string}>(`${API_URL}/text`, text)
+      const resp = await axios.post<{ message: string }>(`${API_URL}/text`, text)
 
       setStatus(RequestStatus.Success)
 
-      const message = (resp.data && resp.data.message) ? resp.data.message : undefined
+      const message = resp.data && resp.data.message ? resp.data.message : undefined
       return message
     } catch (err) {
-      console.error("[useTextUpload]: error during text uploading", err)
+      console.error('[useTextUpload]: error during text uploading', err)
       setStatus(RequestStatus.Failure)
     }
   }
@@ -31,6 +31,6 @@ export const useTextUpload = () => {
     text,
     status,
     setText,
-    uploadText
+    uploadText,
   }
 }

@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 import styles from './Header.module.scss'
 
@@ -10,9 +10,7 @@ export const Header = () => {
         <div className={clsx(styles.inner)}>
           <h1 className={clsx(styles.name)}>
             <Link to="/">
-              <span
-                className={clsx(styles.wave)}
-              />
+              <span className={clsx(styles.wave)} />
               NEW WAVE DIPSO
             </Link>
           </h1>

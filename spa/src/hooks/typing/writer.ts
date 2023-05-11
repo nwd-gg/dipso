@@ -60,6 +60,6 @@ export class Writter {
     const min = this.speedRange[0]
     const max = this.speedRange[1]
 
-    return (Math.random() * (max - min) + min);
+    return Math.random() * (max - min) + min
   }
 }

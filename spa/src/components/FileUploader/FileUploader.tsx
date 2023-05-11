@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import clsx from 'clsx';
+import { useMemo, useState } from 'react'
+import clsx from 'clsx'
 
 import styles from './FileUploader.module.scss'
 
@@ -8,7 +8,7 @@ export interface FileUploaderProps {
 }
 
 export const FileUploader = ({ onChange }: FileUploaderProps) => {
-  const [files, setFile] = useState<FileList | null>(null);
+  const [files, setFile] = useState<FileList | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return
@@ -20,7 +20,7 @@ export const FileUploader = ({ onChange }: FileUploaderProps) => {
   }
 
   const hasFiles = useMemo(() => files && Boolean(files.length), [files])
-  const actionText = hasFiles ? 'Replace' : 'Select';
+  const actionText = hasFiles ? 'Replace' : 'Select'
 
   return (
     <div className={clsx(styles.root)}>
@@ -31,17 +31,16 @@ export const FileUploader = ({ onChange }: FileUploaderProps) => {
         className={clsx(styles.input)}
         onChange={handleChange}
       />
-      <label
-        htmlFor="file-upload"
-        className={clsx(styles.label)}
-      >
+      <label htmlFor="file-upload" className={clsx(styles.label)}>
         {actionText}
       </label>
       <div
         className={clsx(styles.previewWrap, {
-          [styles.active]: hasFiles
-        })}>
-        {(files && Boolean(files.length)) &&
+          [styles.active]: hasFiles,
+        })}
+      >
+        {files &&
+          Boolean(files.length) &&
           Array.from(files).map((file) => {
             return (
               <img
@@ -52,8 +51,8 @@ export const FileUploader = ({ onChange }: FileUploaderProps) => {
                 className={clsx(styles.preview)}
               />
             )
-        })}
+          })}
       </div>
     </div>
-  );
-};
+  )
+}
