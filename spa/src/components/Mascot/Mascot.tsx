@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import clsx from 'clsx';
 
-import { useEyesTracking } from './Mascot.hooks';
+import { useEyesMovement } from './Mascot.hooks';
 import styles from './Mascot.module.scss';
 
 export interface MascotProps {
@@ -12,7 +12,7 @@ export const Mascot = ({ className }: MascotProps) => {
   const leftEyeRef = useRef<HTMLDivElement>(null)
   const rightEyeRef = useRef<HTMLDivElement>(null)
 
-  useEyesTracking([leftEyeRef, rightEyeRef])
+  useEyesMovement([leftEyeRef, rightEyeRef])
 
   return (
     <div className={clsx(styles.container, className)}>

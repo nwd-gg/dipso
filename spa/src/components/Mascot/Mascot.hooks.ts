@@ -2,7 +2,7 @@ import { useLayoutEffect } from 'react';
 import { useMouseMove } from '../../hooks/useMouseMove';
 
 
-export const useEyesTracking = (eyes: React.RefObject<HTMLDivElement>[]) => {
+export const useEyesMovement = (eyes: React.RefObject<HTMLDivElement>[]) => {
   const {x: cursoX, y: cursoY } = useMouseMove()
 
   useLayoutEffect(() => {
