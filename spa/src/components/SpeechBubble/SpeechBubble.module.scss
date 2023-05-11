@@ -1,0 +1,26 @@
+.bubble {
+  position: relative;
+  min-width: 200px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--accent-primary);
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: -25px;
+    left: 20px;
+    border-style: solid;
+    border-width: 15px;
+    border-color: var(--accent-primary) transparent transparent var(--accent-primary);
+    transform: rotate(10deg);
+  }
+}

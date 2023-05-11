@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.monitor {
+.monitorWrap {
   position: relative;
   width: 700px;
   height: 700px;
@@ -14,6 +14,12 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
+
+  .dialog {
+    position: absolute;
+    top: 85px;
+    right: 86px;
+  }
 }
 
 .mascot {

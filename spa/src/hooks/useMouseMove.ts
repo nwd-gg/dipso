@@ -7,7 +7,7 @@ export const useMouseMove = () => {
   const handleMouseMove = throttle((e: MouseEvent) => {
     e.preventDefault()
     setState((state) => ({ ...state, x: e.clientX, y: e.clientY }))
-  }, 10)
+  }, 20)
 
   useLayoutEffect(() => {
     document.addEventListener('mousemove', handleMouseMove)
