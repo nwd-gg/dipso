@@ -4,6 +4,7 @@ import { Mascot } from '../Mascot'
 
 import styles from './MascotScene.module.scss'
 import { SpeechBubble } from '../SpeechBubble'
+import { KeyboardArea } from '../KeyboardArea'
 
 export const MascotScene = () => {
   return (
@@ -12,6 +13,7 @@ export const MascotScene = () => {
         <Mascot className={clsx(styles.mascot)} />
         <SpeechBubble text="Some generic text" className={clsx(styles.dialog)} />
       </div>
+      <KeyboardArea />
     </div>
   )
 }

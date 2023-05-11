@@ -17,10 +17,31 @@
     position: absolute;
     display: block;
     bottom: -25px;
-    left: 20px;
+    left: 8px;
     border-style: solid;
     border-width: 15px;
     border-color: var(--accent-primary) transparent transparent var(--accent-primary);
     transform: rotate(10deg);
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
   }
 }

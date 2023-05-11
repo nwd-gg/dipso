@@ -5,7 +5,7 @@ export const useEyesMovement = (eyes: React.RefObject<HTMLDivElement>[]) => {
   const { x: cursoX, y: cursoY } = useMouseMove()
 
   useLayoutEffect(() => {
-    const maxMoveBoundaries = [-5, 5]
+    const maxMoveBoundaries = [-3, 3]
 
     eyes.forEach((ref) => {
       const element = ref.current
