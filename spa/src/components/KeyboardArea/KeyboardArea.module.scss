@@ -108,6 +108,7 @@
   transform: translate(-50%, -50%);
   visibility: hidden;
   transition: opacity .2s ease-out;
+  animation: show 2s ease-out 29s 1;
   cursor: pointer;
 }
 
@@ -137,3 +138,18 @@
     background-position: 0 0;
   }
 }
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  30%, 70% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+  }
+} 

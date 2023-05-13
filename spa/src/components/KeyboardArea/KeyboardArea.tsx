@@ -5,14 +5,16 @@ import { TextareaField } from '../ui/Textarea'
 
 import styles from './KeyboardArea.module.scss'
 
-export const KeyboardArea = () => {
+export interface KeyboardAreaProps {
+  onFocus?: () => void
+}
+
+export const KeyboardArea = ({ onFocus }: KeyboardAreaProps) => {
   const [isTextAreaShown, setIsTextAreaShown] = useState(false)
 
   const hanleUseClick = () => {
     setIsTextAreaShown(true)
   }
-
-  const handleOnChange = () => {}
 
   return (
     <div className={clsx(styles.root)}>
@@ -24,8 +26,8 @@ export const KeyboardArea = () => {
       </div>
       <div className={clsx(styles.textareaWrap, { [styles.visible]: isTextAreaShown })}>
         <TextareaField
+          onFocus={onFocus}
           name="ingredients"
-          onChange={handleOnChange}
           placeholder="Type your ingredients here"
           className={clsx(styles.textarea)}
         />

@@ -3,14 +3,14 @@ import { bubbleDialog } from '../../constants/texts'
 import { getItemFromSession, setItemToSession } from '../../utils/session'
 
 export const useBubbleText = () => {
-  const [phrase, setPharse] = useState<string>('')
+  const isPassedOnboarding: boolean = getItemFromSession('onboarding') ? true : false
 
-  const ouboardingValue = getItemFromSession('onboarding')
+  const [phrase, setPharse] = useState<string>('')
+  const [isOnboardingFinished, setIsOnboardingFinished] = useState(isPassedOnboarding)
+
   const introTexts = bubbleDialog.intro
 
   useEffect(() => {
-    const isPassedOnboarding: boolean = ouboardingValue ? JSON.parse(ouboardingValue) : false
-
     const sequence = introTexts.reduce<(() => Promise<string>)[]>((acc, { text, delay }, index) => {
       const isLastItem = index === introTexts.length - 1
 
@@ -20,6 +20,8 @@ export const useBubbleText = () => {
             setTimeout(() => {
               if (isLastItem) {
                 setItemToSession('onboarding', 'true')
+
+                setTimeout(() => setIsOnboardingFinished(true), delay)
               }
               resolve(text)
             }, delay)
@@ -53,7 +55,11 @@ export const useBubbleText = () => {
     }
 
     execution()
-  }, [ouboardingValue, introTexts])
+  }, [introTexts, isPassedOnboarding])
 
-  return phrase
+  return {
+    phrase,
+    setPharse,
+    isOnboardingFinished,
+  }
 }

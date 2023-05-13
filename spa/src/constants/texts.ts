@@ -12,23 +12,23 @@ export const bubbleDialog = {
     },
     {
       text: 'ChatGPT is a conversational AI developed by OpenAI. Meow 😻',
-      delay: 5000,
+      delay: 7000,
     },
     {
       text: 'It uses deep learning to understand and generate human-like responses in natural language conversations. Meow 😼',
-      delay: 3500,
+      delay: 4000,
     },
     {
       text: 'It can discuss various topics, but its answers may occasionally be inaccurate or nonsensical. So be careful. Meow 🙀',
-      delay: 4500,
+      delay: 5500,
     },
     {
       text: "Ready to mix up some magic? Use the KEYBOARD below and share the ingredients you have on hand! Let's create a cocktail masterpiece together. Meow 🍹😸",
-      delay: 4500,
+      delay: 7000,
     },
   ],
   submit:
-    'Ready to dive into the mixology madness? Double-check your ingredient list and hit the "Beep Boop" button to submit, and we\'ll get the cocktail shenanigans started! Meow 😸',
+    'Ready to dive into the mixology madness? Check ingredient list and hit the "Beep Boop" button to submit, and we\'ll get the cocktail shenanigans started! Meow 😸',
   loading:
     'Just a moment, cocktail alchemy is in progress. Get ready to savor a delightful recommendation! Meow 💭',
   success:
