@@ -51,8 +51,8 @@ export class Writter {
   }
 
   public erase() {
-    this.dummyQueue.pop()
-    this.word = this.dummyQueue.join('')
+    this.dummyQueue = []
+    this.word = ''
     return this.word
   }
 
