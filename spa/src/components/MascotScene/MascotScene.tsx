@@ -85,7 +85,12 @@ export const MascotScene = () => {
           <>
             <KeyboardArea onFocus={handleTextareaFocus} onChange={handleOnChange} />
             <div className={clsx(styles.btnWrap)}>
-              <Button size={ButtonSize.Large} onClick={handleSubmit} isDisabled={Boolean(!text)}>
+              <Button
+                size={ButtonSize.Large}
+                onClick={handleSubmit}
+                isDisabled={Boolean(!text)}
+                className={clsx(styles.submitBtn)}
+              >
                 Beep Boop
               </Button>
             </div>
