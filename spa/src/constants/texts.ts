@@ -27,14 +27,14 @@ export const bubbleDialog = {
       delay: 7000,
     },
   ],
-  submit:
+  onFocus:
     'Ready to dive into the mixology madness? Check ingredient list and hit the "Beep Boop" button to submit, and we\'ll get the cocktail shenanigans started! Meow 😸',
-  loading:
-    'Just a moment, cocktail alchemy is in progress. Get ready to savor a delightful recommendation! Meow 💭',
-  success:
+  onLoading:
+    'Just a moment, cocktail alchemy is in progress. Get ready to savor a delightful recommendation! Meow 💭 💭 💭',
+  onSuccess:
     'Voila! Your recommendation is complete, served up with a side of digital flair! Check out the delightful recommendation. Cheers and enjoy! Meow 😻',
-  failure:
-    'Apologies, but it seems AI is currently out of power—please forgive the inconvenience! Meow 😿',
+  onFailure:
+    'Apologies, but it seems AI is currently out of power – please forgive the inconvenience! Try again later. Meow 😿',
 }
 
 export const prepPageText = {

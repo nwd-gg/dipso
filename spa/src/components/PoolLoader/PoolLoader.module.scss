@@ -1,0 +1,18 @@
+.pool {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  background-image: url('../../imgs/shake-robot.png');
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: shake 0.2s ease 0s infinite;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg) }
+  25% { transform: translate3d(10px, 0, 0) rotate(5deg) }
+  50% { transform: rotate(0eg) }
+  75% { transform: translate3d(-10px, 0, 0) rotate(-5deg) }
+  100% { transform: rotate(0deg) }
+}

@@ -7,9 +7,10 @@ import styles from './KeyboardArea.module.scss'
 
 export interface KeyboardAreaProps {
   onFocus?: () => void
+  onChange?: (event: React.FormEvent<HTMLTextAreaElement>) => void
 }
 
-export const KeyboardArea = ({ onFocus }: KeyboardAreaProps) => {
+export const KeyboardArea = ({ onFocus, onChange }: KeyboardAreaProps) => {
   const [isTextAreaShown, setIsTextAreaShown] = useState(false)
 
   const hanleUseClick = () => {
@@ -27,6 +28,7 @@ export const KeyboardArea = ({ onFocus }: KeyboardAreaProps) => {
       <div className={clsx(styles.textareaWrap, { [styles.visible]: isTextAreaShown })}>
         <TextareaField
           onFocus={onFocus}
+          onChange={onChange}
           name="ingredients"
           placeholder="Type your ingredients here"
           className={clsx(styles.textarea)}

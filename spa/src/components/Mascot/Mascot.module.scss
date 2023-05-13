@@ -6,6 +6,34 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 64px;
+    left: 50px;
+    width: 10px;
+    height: 10px;
+    background-color: #00eaff;
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: opacity .1s ease-out, transform 0.5s ease-out;
+  }
+
+  &.sad {
+    &:after {
+      opacity: 1;
+      transform: translateY(3px) rotate(-45deg);
+    }
+
+    .mouth {
+      top: 68px;
+      border-top: 2px solid #000;
+      border-bottom: none;
+    }
+  }
 }
 
 .eye {
@@ -33,6 +61,7 @@
   width: 10px;
   height: 7px;
   border-bottom: 2px solid #000;
+  border-top: none;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
