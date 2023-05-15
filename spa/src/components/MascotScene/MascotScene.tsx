@@ -70,6 +70,7 @@ export const MascotScene = () => {
 
   const handClear = useCallback(() => {
     clear()
+    setIsOnFocusTextShwon(false)
     setPharse(bubbleDialog.intro[bubbleDialog.intro.length - 1].text)
   }, [clear, setPharse])
 
