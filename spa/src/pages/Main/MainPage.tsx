@@ -20,7 +20,7 @@ export const MainPage = () => {
         <img src={waves} className={clsx(styles.wavesImg)} alt="new waves" />
       </div>
       <div className={clsx(styles.actions)}>
-        <Button size={ButtonSize.Large} href="prep">
+        <Button size={ButtonSize.Large} href="mix">
           Guide me
         </Button>
       </div>

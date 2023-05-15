@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { MainPage } from './pages/Main'
-import { PrepPage } from './pages/Prep'
+import { MixPage } from './pages/Mix'
 
 export const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
-        <Route path="/prep" element={<PrepPage />}></Route>
+        <Route path="/mix" element={<MixPage />}></Route>
       </Routes>
     </BrowserRouter>
   )
