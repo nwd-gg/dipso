@@ -45,7 +45,6 @@ export const useTextUpload = () => {
     } catch (err) {
       console.error('[useTextUpload]: error during text uploading', err)
       setStatus(RequestStatus.Failure)
-      setText(null)
     }
   }
 

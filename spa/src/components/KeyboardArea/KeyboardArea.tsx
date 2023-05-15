@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
 import { TextareaField } from '../ui/Textarea'
@@ -6,12 +6,19 @@ import { TextareaField } from '../ui/Textarea'
 import styles from './KeyboardArea.module.scss'
 
 export interface KeyboardAreaProps {
+  value?: string
   onFocus?: () => void
   onChange?: (event: React.FormEvent<HTMLTextAreaElement>) => void
 }
 
-export const KeyboardArea = ({ onFocus, onChange }: KeyboardAreaProps) => {
+export const KeyboardArea = ({ onFocus, onChange, value }: KeyboardAreaProps) => {
   const [isTextAreaShown, setIsTextAreaShown] = useState(false)
+
+  useEffect(() => {
+    if (value && !isTextAreaShown) {
+      setIsTextAreaShown(true)
+    }
+  }, [value, isTextAreaShown])
 
   const hanleUseClick = () => {
     setIsTextAreaShown(true)
@@ -27,6 +34,7 @@ export const KeyboardArea = ({ onFocus, onChange }: KeyboardAreaProps) => {
       </div>
       <div className={clsx(styles.textareaWrap, { [styles.visible]: isTextAreaShown })}>
         <TextareaField
+          value={value}
           onFocus={onFocus}
           onChange={onChange}
           name="ingredients"

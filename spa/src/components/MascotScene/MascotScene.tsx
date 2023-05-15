@@ -22,10 +22,6 @@ export const MascotScene = () => {
   const { text, status, setText, uploadText, clear } = useTextUpload()
 
   useEffect(() => {
-    if (isOnboardingFinished) {
-      setIsOnFocusTextShwon(true)
-    }
-
     if (isTextaredFocused && isOnboardingFinished && !isOnFocusTextShwon) {
       setPharse(bubbleDialog.onFocus)
       setIsOnFocusTextShwon(true)
@@ -71,8 +67,7 @@ export const MascotScene = () => {
   const handClear = useCallback(() => {
     clear()
     setIsOnFocusTextShwon(false)
-    setPharse(bubbleDialog.intro[bubbleDialog.intro.length - 1].text)
-  }, [clear, setPharse])
+  }, [clear])
 
   return (
     <div className={clsx(styles.root)}>
@@ -84,7 +79,11 @@ export const MascotScene = () => {
         {status === RequestStatus.Pending && <RobotLoader />}
         {(status === RequestStatus.Idle || status === RequestStatus.Failure) && (
           <>
-            <KeyboardArea onFocus={handleTextareaFocus} onChange={handleOnChange} />
+            <KeyboardArea
+              value={text || ''}
+              onFocus={handleTextareaFocus}
+              onChange={handleOnChange}
+            />
             <div className={clsx(styles.btnWrap)}>
               <Button
                 size={ButtonSize.Large}
