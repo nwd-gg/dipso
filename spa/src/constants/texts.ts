@@ -30,7 +30,7 @@ export const bubbleDialog = {
   onFocus:
     'Ready to dive into the mixology madness? Check ingredient list and hit the "Beep Boop" button to submit, and we\'ll get the cocktail shenanigans started! Meow 😸',
   onLoading:
-    'Just a moment, cocktail alchemy is in progress. Get ready to savor a delightful recommendation! It will take about a minute Meow 💭',
+    'Just a moment, cocktail alchemy is in progress. Get ready to savor a delightful recommendation! It will take about a minute. Meow 💭',
   onSuccess:
     'Voila! Your recommendation is complete, served up with a side of digital flair! Check out the delightful recommendation. Cheers and enjoy! Meow 😻',
   onFailure:
