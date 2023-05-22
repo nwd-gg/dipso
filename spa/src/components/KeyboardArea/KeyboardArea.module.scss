@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 
   &:before {
     content: '';
@@ -55,6 +56,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 
   &:hover {
     .btn {
