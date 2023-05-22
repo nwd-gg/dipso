@@ -1,2 +1,2 @@
-Classify "List" into categories and return food and beverage categories. If not, return "NOTHING":
+Classify "List" into categories and return food and beverage categories. If not, return "nil":
 {{.Value}}

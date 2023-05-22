@@ -16,6 +16,7 @@ require (
 
 require (
 	cloud.google.com/go/longrunning v0.3.0 // indirect
+	github.com/sashabaranov/go-openai v1.9.4 // indirect
 	golang.org/x/image v0.5.0 // indirect
 )
 
