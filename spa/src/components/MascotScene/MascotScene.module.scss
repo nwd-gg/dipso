@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 .monitorWrap {
@@ -18,7 +18,7 @@
 
   .dialog {
     position: absolute;
-    bottom: calc(100% - 30px);
+    bottom: calc(100% - 20px);
     left: 10px;
   }
 }
@@ -64,7 +64,7 @@
 }
 
 .response {
-  margin-top: 20px;
+  margin-top: 55px;
 }
 
 @media screen and (max-width: 500px) {
