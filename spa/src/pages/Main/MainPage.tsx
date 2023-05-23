@@ -21,7 +21,7 @@ export const MainPage = () => {
           <a href="https://openai.com/" target="blank">
             OpenAI&nbsp;Chat&nbsp;API
           </a>{' '}
-          to make it easy and enjoyable for you to explore new flavors and create drinks at home.
+          to make it easy and enjoyable for you to explore new flavors and create drinks at home
         </Caption>
         <img src={glass} className={clsx(styles.img)} alt="new waves" />
       </div>
