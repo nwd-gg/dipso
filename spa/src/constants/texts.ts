@@ -1,7 +1,7 @@
 export const mainPageText = {
-  title: 'Give us chance to suggest drink for homechill',
+  title: 'Ignite Your Homechill with Our Drink Recommendations!',
   caption:
-    'Simple fun pet project across ChatGPT functionality to make homechill a bit more pleasant. Give us chance to suggest drink or another stuff for homechill.',
+    'Step into the extraordinary world of ChatGPT, where homechill transforms into a whimsical adventure of delightful drinks and mischievous recommendations. Brace yourself for a wild ride of flavor and fun, as this mixologist guides you through a magical journey of zesty libations and outlandish shenanigans.',
 }
 
 export const bubbleDialog = {
