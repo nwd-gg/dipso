@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 import styles from './Header.module.scss'
 
@@ -15,9 +15,21 @@ export const Header = () => {
             </Link>
           </h1>
           <nav className={clsx(styles.nav)}>
-            <Link to="/" className={clsx(styles.link)}>
+            <NavLink to="/" className={clsx(styles.link)}>
               <span className={clsx(styles.linkContent)}>Home</span>
-            </Link>
+            </NavLink>
+            <NavLink
+              to="/mix"
+              className={({ isActive }) => clsx(styles.link, { [styles.active]: isActive })}
+            >
+              <span className={clsx(styles.linkContent)}>Mix</span>
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => clsx(styles.link, { [styles.active]: isActive })}
+            >
+              <span className={clsx(styles.linkContent)}>About</span>
+            </NavLink>
           </nav>
         </div>
       </div>

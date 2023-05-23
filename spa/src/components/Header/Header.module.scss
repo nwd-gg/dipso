@@ -40,6 +40,10 @@
   font-weight: 700;
   text-decoration: none;
   color: var(--text-color-primary);
+
+  &.active {
+    color: var(--accent-primary);
+  }
 }
 
 .linkContent {
