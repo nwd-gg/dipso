@@ -1,3 +1,3 @@
 # New Wave Dipso
 
-Simple pet project across ChatGPT functionality to make homechill a bit more pleasant.
+Website using the OpenAI Chat API to make it easy and fun for you to explore new flavors and create drinks at home.
