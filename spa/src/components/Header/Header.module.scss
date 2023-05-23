@@ -1,6 +1,4 @@
 .header {
-  /* grid-row-start: 0;
-  grid-row-end: 1; */
   padding: 10px;
   background-color: rgba(69, 220, 255, 1);
 }
@@ -15,6 +13,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.name {
+  margin: 0;
+}
+
+.name a {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  color: var(--accent-primary);
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .nav {
@@ -74,8 +85,17 @@
 }
 
 @media screen and (max-width: 500px) {
+  .header {
+    padding-bottom: 0;
+  }
+
   .container {
     padding: 0 10px;
+  }
+
+  .inner {
+    flex-direction: column;
+    justify-content: center;
   }
 
   .link {

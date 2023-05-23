@@ -10,9 +10,19 @@ export const Footer = () => {
       <div className={clsx(styles.container)}>
         <div className={clsx(styles.inner)}>
           <div className={clsx(styles.contacts)}>
-            <a className={clsx(styles.contactLink)} target="blank" href="https://github.com/nwd-gg">
-              <span className={clsx(styles.contactIcon, { [styles.github]: true })} />
-              <span>github</span>
+            <a
+              className={clsx(styles.contactLink)}
+              target="blank"
+              href="https://github.com/nwd-gg/dipso"
+            >
+              github
+            </a>
+            <a
+              className={clsx(styles.contactLink)}
+              target="blank"
+              href="mailto:mostalt.mail@gmail.com"
+            >
+              email
             </a>
           </div>
           <div className={clsx(styles.copyright)}>Copyright © {currentYear} NWD</div>

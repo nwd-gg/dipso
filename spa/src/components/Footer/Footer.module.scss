@@ -14,12 +14,7 @@
 .inner {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-}
-
-.contactsTitle {
-  font-size: 18px;
-  line-height: 1.7;
+  align-items: center;
 }
 
 .contactLink {
@@ -28,6 +23,7 @@
   align-items: flex-end;
   padding-right: 15px;
   text-decoration: none;
+  font-size: 16px;
   font-weight: 600;
   transition: color 0.25s ease-out;
   line-height: 1;
@@ -39,6 +35,7 @@
 }
 
 .copyright {
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -53,10 +50,8 @@
   line-height: 1;
 }
 
-.contactIcon.gmail {
-  background-image: url('https://lh3.googleusercontent.com/0rpHlrX8IG77awQMuUZpQ0zGWT7HRYtpncsuRnFo6V3c8Lh2hPjXnEuhDDd-OsLz1vua4ld2rlUYFAaBYk-rZCODmi2eJlwUEVsZgg');
-}
-
-.contactIcon.github {
-  background-image: url('https://github.githubassets.com/images/modules/site/icons/footer/github-mark.svg');
+@media screen and (max-width: 500px) {
+  .copyright {
+    font-size: 12px;
+  }
 }

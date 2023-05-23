@@ -8,9 +8,12 @@ export const Header = () => {
     <header className={clsx(styles.header)}>
       <div className={clsx(styles.container)}>
         <div className={clsx(styles.inner)}>
-          <Link to="/">
-            <span className={clsx(styles.wave)} />
-          </Link>
+          <h1 className={clsx(styles.name)}>
+            <Link to="/">
+              <span className={clsx(styles.wave)} />
+              NEW WAVE DIPSO
+            </Link>
+          </h1>
           <nav className={clsx(styles.nav)}>
             <NavLink to="/" className={clsx(styles.link)}>
               <span className={clsx(styles.linkContent)}>Home</span>
