@@ -27,6 +27,12 @@ code {
 
 a {
   outline: none;
+  color: var(--accent-primary);
+  text-decoration: none;
+
+  &:visited {
+    text-decoration: underline;
+  }
 }
 
 #root {

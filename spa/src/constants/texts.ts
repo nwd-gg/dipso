@@ -1,9 +1,3 @@
-export const mainPageText = {
-  title: 'Ignite Your Homechill with Our Drink Recommendations!',
-  caption:
-    'Step into the extraordinary world of ChatGPT, where homechill transforms into a whimsical adventure of delightful drinks and mischievous recommendations. Brace yourself for a wild ride of flavor and fun, as this mixologist guides you through a magical journey of zesty libations and outlandish shenanigans.',
-}
-
 export const bubbleDialog = {
   intro: [
     {

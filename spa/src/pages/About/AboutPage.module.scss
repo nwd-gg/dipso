@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imgWrap {
+  width: 40%;
+  padding-right: 50px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.content {
+  width: 60%;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgWrap {
+    width: 100%;
+    max-width: 250px;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
