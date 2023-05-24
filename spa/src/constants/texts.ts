@@ -17,7 +17,7 @@ export const bubbleDialog = {
       delay: 5500,
     },
     {
-      text: "Ready to mix up some magic? Use the KEYBOARD below and share the ingredients you have on hand! Let's create a cocktail masterpiece together. Meow 🍹😸",
+      text: 'Ready to mix up some magic? Use the KEYBOARD below and share the ingredients you have on hand! Meow 🍹😸',
       delay: 7000,
     },
   ],
