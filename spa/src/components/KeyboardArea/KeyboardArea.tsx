@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
 import { TextareaField } from '../ui/Textarea'
+import keyboardImg from '../../imgs/keyboard_horizontal.png'
 
 import styles from './KeyboardArea.module.scss'
 
@@ -9,9 +10,10 @@ export interface KeyboardAreaProps {
   value?: string
   onFocus?: () => void
   onChange?: (event: React.FormEvent<HTMLTextAreaElement>) => void
+  onImageLoad?: () => void
 }
 
-export const KeyboardArea = ({ onFocus, onChange, value }: KeyboardAreaProps) => {
+export const KeyboardArea = ({ onFocus, onChange, value, onImageLoad }: KeyboardAreaProps) => {
   const [isTextAreaShown, setIsTextAreaShown] = useState(false)
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export const KeyboardArea = ({ onFocus, onChange, value }: KeyboardAreaProps) =>
   return (
     <div className={clsx(styles.root)}>
       <div className={clsx(styles.inner, { [styles.hidden]: isTextAreaShown })}>
-        <div className={clsx(styles.img)} />
+        <img src={keyboardImg} alt="keyboard" className={clsx(styles.img)} onLoad={onImageLoad} />
         <button className={clsx(styles.btn)} onClick={hanleUseClick}>
           Use
         </button>
