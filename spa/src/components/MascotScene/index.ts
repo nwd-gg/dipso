@@ -1,1 +1,0 @@
-export { MascotScene } from './MascotScene'
