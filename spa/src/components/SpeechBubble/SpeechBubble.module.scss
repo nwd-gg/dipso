@@ -21,7 +21,18 @@
     border-style: solid;
     border-width: 0px 40px 40px 0px;
     border-color: transparent var(--accent-primary) transparent transparent;
-    //transform: rotate(10deg);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .bubble {
+    width: 100%;
+    min-width: 280px;
+
+    &:after {
+      bottom: -34px;
+      border-width: 0px 35px 35px 0px;
+    }
   }
 }
 

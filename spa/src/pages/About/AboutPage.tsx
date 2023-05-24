@@ -30,7 +30,7 @@ export const AboutPage = () => {
             </a>{' '}
             to generate stunning visual assets. Exercise caution and engage your critical thinking
             when utilizing AI recommendations, as their outcomes can occasionally yield unexpected
-            results, necessitating the use of your own discernment
+            results, necessitating the use of your own discernment.
           </Caption>
           <Caption>
             We value your feedback and suggestions! If you have any ideas, recommendations, or
