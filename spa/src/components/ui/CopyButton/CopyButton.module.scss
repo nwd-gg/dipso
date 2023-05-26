@@ -1,0 +1,27 @@
+.btn {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  padding: 7px;
+  border: none;
+  outline: none;
+  background-color: var(--second-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
+.caption {
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  display: block;
+  padding: 5px;
+  font-size: 12px;
+  transform: translate(-50%, -50%);
+}

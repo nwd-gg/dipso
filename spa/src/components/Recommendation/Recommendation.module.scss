@@ -6,13 +6,19 @@
   animation-fill-mode: forwards;
   white-space: pre-line;
   opacity: 0;
+
+  .copy {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
 }
 
 .content {
   position: relative;
   width: 100%;
   min-height: 50px;
-  padding: 40px 20px 20px;
+  padding: 40px 20px 45px 20px;
   line-height: 1.5;
   background-color: #fff;
   border-radius: 10px;
@@ -31,6 +37,7 @@
   background-repeat: no-repeat;
   transform: translateX(-50%);
 }
+
 
 @keyframes fadeIn {
   0% {
