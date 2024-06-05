@@ -8,6 +8,7 @@ on:
       - "main"
     paths:
       - "spa/**"
+  workflow_dispatch:
 
 jobs:
   ci-build-n-deploy:
