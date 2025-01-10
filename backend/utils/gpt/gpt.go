@@ -77,7 +77,6 @@ func GetRespFromGhatGPT(text string) (string, error) {
 		openai.ChatCompletionRequest{
 			Model:       openai.GPT3Dot5Turbo,
 			Temperature: 0,
-			MaxTokens:   666,
 			Messages: []openai.ChatCompletionMessage{
 				{
 					Role:    openai.ChatMessageRoleUser,
